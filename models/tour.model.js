@@ -1,25 +1,15 @@
-const { Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const tourSchema = new Schema(
+const tourSchema = new Schema({
+  name: String,
+  photoSrc: String,
+  venues: [
     {
-        name: String,
-        photoSrc: String,
-        musicianId: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'musician'
-        },
-        venues: [{
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'venue'
-          }],
-        contactedByVenue: Boolean,    
-        
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "VenueUser",
     },
+  ],
+  contactedByVenue: Boolean,
+});
 
-)
-
-
-
-
-
-module.exports = model('User', tourSchema);
+module.exports = model("Tour", tourSchema);
