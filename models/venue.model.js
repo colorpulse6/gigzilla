@@ -16,7 +16,8 @@ const venueSchema = new Schema(
       type: String,
       required: true,
     },
-    phoneNumber: Number,
+    cityName: String,
+    phoneNumber: String,
     type: String,
     genre: String,
     photoSrc: String,
@@ -29,10 +30,10 @@ const venueSchema = new Schema(
       type: Number,
       required: [true, "Please enter your venue's capacity."],
     },
-  },
+  }
 );
 
 venueSchema.index({'name': 1}, {unique: [true, "Venue already exists."]});
 venueSchema.index({'email': 1}, {unique: [true, "Email already in use, please register with another email."]}); 
 
-module.exports = model("venueUser", venueSchema);
+module.exports = model("VenueUser", venueSchema)

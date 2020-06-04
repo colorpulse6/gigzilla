@@ -1,6 +1,9 @@
-const { Schema, model} = require('mongoose');
+const { Schema, model } = require("mongoose");
 
-const tourSchema = new Schema(
+const tourSchema = new Schema({
+  name: String,
+  photoSrc: String,
+  venues: [
     {
         name: String,
         photoSrc: String,
@@ -11,11 +14,8 @@ const tourSchema = new Schema(
         contactedByVenue: Boolean,    
         
     },
+  ],
+  contactedByVenue: Boolean,
+});
 
-)
-
-
-
-
-
-module.exports = model('User', tourSchema);
+module.exports = model("Tour", tourSchema);
