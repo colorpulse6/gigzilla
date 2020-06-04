@@ -20,6 +20,26 @@ const indexRouter = require('./routes/index.routes');
 
 const app = express();
 
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+ 
+app.use(session({
+    secret: 'my-secret-weapon',
+    saveUninitialized: false,
+    resave: true,
+    cookie: {
+      maxAge: 60*60*24*1000 //60 sec * 60 min * 24hrs = 1 day (in milliseconds)
+    },
+    store: new MongoStore({
+        url: 'mongodb://localhost/basicAuth',
+        // mongooseConnection: mongoose.connection
+        //time to live (in seconds)
+        ttl: 60*60*24,
+        autoRemove: 'disabled'
+    })
+}));
+
+
 // Express View engine setup
 
 app.set('views', path.join(__dirname, 'views'));
