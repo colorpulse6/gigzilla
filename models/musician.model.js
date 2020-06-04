@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const musicianSchema = new Schema(
   {
-   musicianId: String, 
+   
    musicianName: String,
    email: {
      type: String,
