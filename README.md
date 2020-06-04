@@ -116,7 +116,7 @@ Gigzilla offers a convenient platform for musicians to build tours and collabora
         - isAvailable
 
 ## Models
-- UserMusician new Schema ({musicianId:, name: String, email: String, password: String, phone number: Number, genre: String, photoSrc: String, bio: String})
+- UserMusician new Schema ({musicianId:, musicianName: String, email: String, password: String, phone number: Number, genre: String, photoSrc: String, bio: String})
 - Tour new Schema ({name: String, photoSrc: String, musicianId, contactedByVenue: Boolean, cities: [ ]})
 - City new Schema ({name: String, cityId:})
 - UserVenue new Schema ({name: String, email: String, password: String, phone number: Number, cityName: String, imgUrl: String, cityId.populate, isBooked: Boolean, backline: Boolean, food: Boolean, venueId: Number, capacity: Number, type: String, contactedByTour: Boolean, isAvailable: Boolean, contactedTour: Boolean
