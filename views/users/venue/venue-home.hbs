@@ -1,0 +1,9 @@
+<div>
+    <h1>Hey {{venueData.name}}</h1>
+    <h2>Tours in Your Area</h2>
+    <div>
+        {{#each}}
+        <a href="/home/venue/{{tourData.id}}">{{tourData.name}}</a>
+        {{/each}}
+    </div>
+</div>
