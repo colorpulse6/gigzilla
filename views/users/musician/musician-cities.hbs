@@ -1,1 +1,7 @@
-<div>Musician Cities</div>
+<div>Venues in {{cities.name}}</div>
+{{#each venues}}
+<a href="/home/musician/:tour/:cities/{{this._id}}"><P>{{this.name}}</P></a>
+
+
+{{/each }}
+
