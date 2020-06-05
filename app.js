@@ -25,7 +25,7 @@ const app = express();
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
- 
+
 app.use(session({
     secret: 'my-secret-weapon',
     saveUninitialized: false,
@@ -42,9 +42,7 @@ app.use(session({
     })
 }));
 
-
 // Express View engine setup
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));

@@ -1,0 +1,18 @@
+<div>
+    <div>
+        {{#each tourData}}
+        <h2>{{this.name}}</h2>
+        <img src="{{this.photoSrc}}"
+        {{/each}}
+    </div>
+    <div>
+        <h3>Contact Tour</h3>
+        <form method="POST" action="/home/venue/:tour">
+            <label for="email">Contact Email</label>
+            <input type="email" name="email" id="email" value="{{venueData.email}}" required>
+            <label for="message">Message</label>
+            <input type="text-area" id="message" name="message" placeholder="Your message to the tour...">
+            <button type="submit">Send</button>
+        </form>
+    </div>
+</div>
