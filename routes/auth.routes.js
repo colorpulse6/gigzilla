@@ -291,6 +291,7 @@ router.post("/signin", (req, res) => {
   }
 });
 
+<<<<<<< HEAD
 //MUSICIAN PROFILE
 router.get('/profile/musician', (req, res) => {
     res.render('users/musician-profile.hbs', {musicianData: req.session.loggedInUser});
@@ -301,6 +302,12 @@ router.get('/signout', (req, res) => {
   req.session.destroy(() => {
       res.redirect('/')
     })
+=======
+
+
+router.get('/home/venue', (req, res) => {
+    res.render('users/venue/venue-home.hbs', {venueData: req.session.loggedInUser});
+>>>>>>> origin/nic-changes
 })
 
 module.exports = router;
