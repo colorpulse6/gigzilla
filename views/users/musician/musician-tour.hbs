@@ -11,6 +11,6 @@ Your tour is {{tourData.name}}
 
 {{#if result}}
     {{#each result}}
-    <a href="/home/musician{{this._id}}">{{this.name}}</a>
+    <a href="/home/musician/:tour/{{this._id}}">{{this.name}}</a>
     {{/each}}
 {{/if}}

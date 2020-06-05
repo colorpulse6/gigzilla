@@ -59,7 +59,8 @@ router.post('/home/musician/:tour', (req, res) => {
             venues: venues
         })
         .then((result) => {
-            res.render('users/musician/musician-tour.hbs', {layout: 'musicianLayout.hbs', result});
+            res.render('users/musician/musician-tour.hbs', {layout: 'musicianLayout.hbs', result})
+            
              console.log(result)
             CityModel.find()
                 .then((cities)=> {
@@ -75,9 +76,16 @@ router.post('/home/musician/:tour', (req, res) => {
 })
 
 //City Route
-router.get('/home/musician/:cities', (req, res) => {
+router.get('/home/musician/:tour/:cityId', (req, res) => {
     const { cityId } = req.params
-    res.render('users/musician/musician-cities.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+    CityModel.findById(cityId)
+    .then(() => {
+        res.render('users/musician/musician-cities.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+    })
+    .catch(() => {
+        res.send('Something is wrong')
+    })
+    
 })
 
 
