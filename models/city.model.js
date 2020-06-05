@@ -4,7 +4,7 @@ const citySchema = new Schema(
   {
         name: String,
         venues: [{
-            type: mongoose.Schema.Types.ObjectId,
+            type: Schema.Types.ObjectId,
             ref: 'venueUser'
         }] //references venue model
   },
