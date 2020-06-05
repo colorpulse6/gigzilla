@@ -5,10 +5,12 @@ const venueSchema = new Schema(
     name: {
       type: String,
       required: [true, "Please enter name of your venue"],
+      
     },
     email: {
       type: String,
       required: [true, "Please enter contact email"],
+      
     },
     passwordHash: {
       type: String,
@@ -34,4 +36,4 @@ const venueSchema = new Schema(
 venueSchema.index({'name': 1}, {unique: [true, "Venue already exists."]});
 venueSchema.index({'email': 1}, {unique: [true, "Email already in use, please register with another email."]}); 
 
-module.exports = model("VenueUser", venueSchema)
+module.exports = model("VenueUser", venueSchema);

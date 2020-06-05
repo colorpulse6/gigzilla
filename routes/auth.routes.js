@@ -132,7 +132,7 @@ router.post("/signup/venue", (req, res) => {
 
   //ENCRYPT PASSWORD
   bcrypt.genSalt(12).then((salt) => {
-    // console.log("Salt: ", salt);
+     console.log("Salt: ", salt);
     bcrypt.hash(password, salt).then((passwordHash) => {
       VenueModel.create({
         name,
@@ -155,6 +155,7 @@ router.post("/signup/venue", (req, res) => {
           if (err.code === 11000) {
             res.status(500).render("auth/venue-signup.hbs", {
               errorMessage: "username or email entered already exists!",
+
             });
             return;
           } else {

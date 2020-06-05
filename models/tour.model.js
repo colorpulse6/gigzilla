@@ -5,8 +5,14 @@ const tourSchema = new Schema({
   photoSrc: String,
   venues: [
     {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "VenueUser",
+        name: String,
+        photoSrc: String,
+        venues: [{
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'venue'
+          }],
+        contactedByVenue: Boolean,    
+        
     },
   ],
   contactedByVenue: Boolean,
