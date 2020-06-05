@@ -34,7 +34,7 @@ app.use(session({
       maxAge: 60*60*24*1000 //60 sec * 60 min * 24hrs = 1 day (in milliseconds)
     },
     store: new MongoStore({
-        url: 'mongodb://localhost/3000',
+        url: 'mongodb://localhost/gigzilla',
         // mongooseConnection: mongoose.connection
         //time to live (in seconds)
         ttl: 60*60*24,

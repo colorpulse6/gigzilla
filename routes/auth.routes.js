@@ -173,6 +173,7 @@ router.get("/signin", (req, res) => {
   res.render("auth/signin.hbs");
 });
 
+//SIGN IN (FORM)
 router.post("/signin", (req, res) => {
   const { email, password, type } = req.body;
 
@@ -272,12 +273,10 @@ router.post("/signin", (req, res) => {
   }
 });
 
-router.get('/profile/musician', (req, res) => {
-    res.render('users/musician-profile.hbs', {musicianData: req.session.loggedInUser});
-})
 
-router.get('/profile/venue', (req, res) => {
-    res.render('users/venue-profile.hbs', {venueData: req.session.loggedInUser});
+
+router.get('/home/venue', (req, res) => {
+    res.render('users/venue/venue-home.hbs', {venueData: req.session.loggedInUser});
 })
 
 module.exports = router;
