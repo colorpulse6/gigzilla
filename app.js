@@ -25,7 +25,7 @@ const app = express();
 
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
- 
+
 app.use(session({
     secret: 'my-secret-weapon',
     saveUninitialized: false,
@@ -34,7 +34,7 @@ app.use(session({
       maxAge: 60*60*24*1000 //60 sec * 60 min * 24hrs = 1 day (in milliseconds)
     },
     store: new MongoStore({
-        url: 'mongodb://localhost/3000',
+        url: 'mongodb://localhost/gigzilla',
         // mongooseConnection: mongoose.connection
         //time to live (in seconds)
         ttl: 60*60*24,
@@ -42,9 +42,7 @@ app.use(session({
     })
 }));
 
-
 // Express View engine setup
-
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 app.use(express.static(path.join(__dirname, 'public')));

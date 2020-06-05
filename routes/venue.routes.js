@@ -8,7 +8,7 @@ router.get("/home/venue", (req, res) => {
     let venueData = req.session.loggedInUser
     TourModel.find()
         .then((tourData) => {
-            res.render("users/venue/venue-home.hbs", { venueData, tourData })
+            res.render("users/venue/venue-home.hbs", { layout: 'venue-layout', venueData, tourData })
         })
         .catch (() => {
             res.send('Unable to view venue homepage')

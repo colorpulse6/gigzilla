@@ -278,4 +278,11 @@ router.get('/profile/musician', (req, res) => {
     res.render('users/musician-profile.hbs', {musicianData: req.session.loggedInUser});
 })
 
+//SIGN OUT
+router.get('/signout', (req, res) => {
+  req.session.destroy(() => {
+      res.redirect('/')
+    })
+})
+
 module.exports = router;
