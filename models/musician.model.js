@@ -1,16 +1,17 @@
 const { Schema, model } = require("mongoose");
 
+
 const musicianSchema = new Schema(
   {
    
-   musicianName: String,
+   name: String,
    email: {
      type: String,
      required: [true, 'Please enter username'],
      
    },
    tours: [{
-     type: mongoose.Schema.Types.ObjectId,
+     type: Schema.Types.ObjectId,
      ref: 'tour'
    }],
 
@@ -23,11 +24,9 @@ const musicianSchema = new Schema(
    photoSrc: String,
    bio: String
 
-userSchema.index(
-  { email: 1 },
-  {
-    unique: [true, "Email already in use, please register with another email."],
   }
-);
+)
+
+   musicianSchema.index({'email': 1}, {unique: [true, "Email already in use, please register with another email."]});
 
 module.exports = model("MusicianUser", musicianSchema);

@@ -1,0 +1,51 @@
+<h1>Venue Sign up</h1>
+
+<form method="POST" action="/signup/venue">
+
+
+
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required >
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    
+    
+    <label for="phoneNumber">Enter your phone number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> 
+
+    <label for="cityName">Enter City:</label>
+    <input type="text" id="cityName" name="cityName" required>
+
+
+    <label for="type">Enter type of venue:</label>
+    <input type="text" id="type" name="type">
+
+    <label for="genre">Enter your genre:</label>
+    <input type="text" id="genre" name="genre"> 
+
+    <label for="description">Please give a brief description:</label>
+    <input type="text-area" id="description" name="description">
+
+    <label for="capacity">Enter your venue's capacity:</label>
+    <input type="text" id="capacity" name="capacity" required>
+
+    <div>
+        <label for="backline">Backline Provided</label><br>
+        <input type="checkbox" id="backline" name="backline" value="backline">
+
+        <label for="food">Catering Provided</label><br>
+        <input type="checkbox" id="food" name="food" value="food">
+    </div>
+        
+    
+    
+
+
+    <button type="submit" >Sign Up</button>
+</form>
+
+{{#if errorMessage}}
+  <div class="error">{{errorMessage}}</div>
+{{/if}}  

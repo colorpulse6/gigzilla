@@ -1,0 +1,27 @@
+<h1>Musician Sign up</h1>
+
+<form method="POST" action="/signup/musician">
+    <label for="name">Name</label>
+    <input type="text" name="name" id="name" required >
+    <label for="email">Email</label>
+    <input type="email" name="email" id="email" required>
+    <label for="password">Password</label>
+    <input type="password" name="password" id="password" required>
+    
+    
+    <label for="phoneNumber">Enter your phone number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> 
+
+    <label for="genre">Enter your genre:</label>
+    <input type="text" id="genre" name="genre"> 
+
+    <label for="bio">Please give a brief bio:</label>
+    <input type="text-area" id="bio" name="bio">
+
+
+    <button type="submit" >Sign Up</button>
+</form>
+
+{{#if errorMessage}}
+  <div class="error">{{errorMessage}}</div>
+{{/if}}  
