@@ -8,7 +8,7 @@ const musicianSchema = new Schema({
   },
   tours: [
     {
-      type: mongoose.Schema.Types.ObjectId,
+      type: Schema.Types.ObjectId,
       ref: "Tour",
     },
   ],
@@ -22,7 +22,7 @@ const musicianSchema = new Schema({
   bio: String,
 });
 
-userSchema.index(
+musicianSchema.index(
   { email: 1 },
   {
     unique: [true, "Email already in use, please register with another email."],
