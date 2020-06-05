@@ -21,7 +21,7 @@ const musicianSchema = new Schema(
    },
    phoneNumber: Number,
    genre: String,
-   photoSrc: String,
+   imgUrl: String,
    bio: String
 
   }

@@ -11,6 +11,11 @@ router.get('/home/musician', (req, res) => {
     res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
 })
 
+//Profile Route
+router.get('/home/musician/profile', (req, res) => {
+    res.render('users/musician/musician-profile.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+})
+
 //Home Route Post
 router.post('/home/musician', (req, res) => {
     let user = req.session.loggedInUser
@@ -19,9 +24,11 @@ router.post('/home/musician', (req, res) => {
         .then((tourData) => {
             
             MusicianModel.findByIdAndUpdate(user._id, 
+                
                 { $push: { tours: [tourData._id]  } })
                 .then((result) => {
                     res.redirect(`/home/musician/${tourData._id}`)
+                    
                 })
         })
             
@@ -103,12 +110,6 @@ router.get('/home/musician/:tour/:cityId/:venueId', (req, res) => {
     }) 
 })
 
-
-
-//Profile Route
-router.get('/home/musician/profile', (req, res) => {
-    res.render('users/musician/musician-profile.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
-})
 
 
 module.exports = router;

@@ -1,1 +1,37 @@
 <div>Musician Profile Page</div>
+
+<form method="POST" action="/home/musician/profile">
+
+
+    <p>Name: {{musicianData.name}}</p>
+    <p>Email: {{musicianData.email}}</p>
+    
+   
+    {{#if musicianData.phoneNumber}}
+    <p>Phone Number: {{musicianData.phoneNumber}}</p>
+    {{else}}
+    <label for="phoneNumber">Enter your phone number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    {{/if}}
+
+    {{#if musicianData.genre}}
+    <p>Genre: {{musicianData.genre}}</p>
+    {{else}}
+     <label for="genre">Enter your genre:</label>
+    <input type="text" id="genre" name="genre">
+    {{/if}}
+
+    {{#if musicianData.bio}}
+    <p>Bio: {{musicianData.bio}}</p>
+    {{else}}
+    <label for="bio">Please give a brief bio:</label>
+    <input type="text-area" id="bio" name="bio">
+    {{/if}}
+
+    <button type="submit" >Save Changes</button>
+</form>
+
+{{#if errorMessage}}
+  <div class="error">{{errorMessage}}</div>
+{{/if}}  
+

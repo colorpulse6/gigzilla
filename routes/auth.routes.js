@@ -11,7 +11,7 @@ router.get("/signup/musician", (req, res) => {
 
 //MUSICIAN SIGN UP (FORM)
 router.post("/signup/musician", (req, res) => {
-  const { name, email, password, phoneNumber, genre, bio, photoSrc } = req.body;
+  const { name, email, password, phoneNumber, genre, bio, imgUrl } = req.body;
 
   //REQUIRED FIELDS:
   if (!name || !email || !password) {
@@ -54,7 +54,7 @@ router.post("/signup/musician", (req, res) => {
         phoneNumber,
         genre,
         bio,
-        photoSrc,
+        imgUrl,
         passwordHash,
       })
         .then(() => {
@@ -69,7 +69,9 @@ router.post("/signup/musician", (req, res) => {
           } else {
             res.status(500).render("auth/musician-signup.hbs", {
               errorMessage: "Something went wrong!",
+              
             });
+            console.log(err)
             return;
           }
         });
@@ -92,7 +94,7 @@ router.post("/signup/venue", (req, res) => {
     type,
     genre,
     description,
-    photoSrc,
+    imgUrl,
     backline,
     food,
     capacity,
@@ -141,7 +143,7 @@ router.post("/signup/venue", (req, res) => {
         type,
         genre,
         description,
-        photoSrc,
+        imgUrl,
         backline,
         food,
         capacity,
