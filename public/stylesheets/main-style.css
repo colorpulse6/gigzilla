@@ -11,13 +11,19 @@ body {
 .main-content {
     background-color: white;
     padding: 50px;
-    border-radius: 50px;
+    text-align: center;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+  font-family: 'Russo One', sans-serif;
+  margin: 0;
+}
+
   
-  a {
-    color: #00b7ff;
+a {
+    color: blue;
     text-decoration: none;
-    font-size: 1.5em;
+    font-size: 14px;
   }
   
   form {
@@ -56,6 +62,7 @@ body {
     text-transform: uppercase;
     transition: 0.3s ease background;
     width: 100%;
+    margin-top: 20px;
   }
   
   form button:hover {

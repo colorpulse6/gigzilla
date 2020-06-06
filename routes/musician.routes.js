@@ -3,7 +3,10 @@ const router = express.Router();
 const MusicianModel = require("../models/musician.model");
 const TourModel = require('../models/tour.model');
 
-
+//MUSICIAN PROFILE
+router.get('/profile/musician', (req, res) => {
+    res.render('users/musician-profile.hbs', {musicianData: req.session.loggedInUser});
+})
 
 router.get('/home/musician', (req, res) => {
     res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
