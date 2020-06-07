@@ -7,13 +7,18 @@
 
 <form method="POST" action="/home/musician">
     <div><label for="name">Tour Name:</label>
-        <input type="name" name="name" id="name" >
+        <input type="name" name="name" id="name" required>
     </div>
     
-    <input type="text" name="city" id="searchbar" placeholder="Search for a city..">
-    <a><button>Build Tour</button></a>
+    
+    <a href="/home/musician/{{tourData._id}}"><button>Build Tour</button></a>
 </form>
 
-<button type="submit">Add City</button>
+
 
 <h1>Active Tours</h1>
+{{#each user.tours}}
+
+<p>{{this.name}}</p>
+
+{{/each}}

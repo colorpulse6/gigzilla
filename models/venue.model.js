@@ -20,7 +20,7 @@ const venueSchema = new Schema(
     phoneNumber: String,
     type: String,
     genre: String,
-    photoSrc: String,
+    imgUrl: String,
     description: String,
     isBooked: Boolean,
     isAvailable: Boolean,

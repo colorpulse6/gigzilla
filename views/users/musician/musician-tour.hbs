@@ -1,2 +1,19 @@
 <div>Musician Tour Page</div>
 
+Hello {{musicianData.name}}
+Your tour is {{tourData.name}}
+
+<form method="POST" action="/home/musician/{{tourData._id}}">
+<input type="text" name="city" id="searchbar" placeholder="Search for a city..">
+<button type="submit">Add City</button>
+
+</form>
+
+
+
+{{#if tourData.cities}}
+    {{#each tourData.cities}}
+    <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
+    <p>{{this.selectedVenue.name}}</p>
+    {{/each}}
+{{/if}}

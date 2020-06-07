@@ -11,7 +11,7 @@ router.get("/signup/musician", (req, res) => {
 
 //MUSICIAN SIGN UP (FORM)
 router.post("/signup/musician", (req, res) => {
-  const { name, email, password, phoneNumber, genre, bio, photoSrc } = req.body;
+  const { name, email, password, phoneNumber, genre, bio, imgUrl } = req.body;
 
   //REQUIRED FIELDS:
   if (!name || !email || !password) {
@@ -57,10 +57,11 @@ router.post("/signup/musician", (req, res) => {
         phoneNumber,
         genre,
         bio,
-        photoSrc,
+        imgUrl,
         passwordHash,
       })
-        .then(() => {
+        .then((musicianData) => {
+          req.session.loggedInUser = musicianData;
           res.redirect("/home/musician");
         })
         .catch((err) => {
@@ -74,7 +75,9 @@ router.post("/signup/musician", (req, res) => {
             res.status(500).render("auth/musician-signup.hbs", {
               layout: "main-layout",
               errorMessage: "Something went wrong!",
+              
             });
+            console.log(err)
             return;
           }
         });
@@ -97,7 +100,7 @@ router.post("/signup/venue", (req, res) => {
     type,
     genre,
     description,
-    photoSrc,
+    imgUrl,
     backline,
     food,
     capacity,
@@ -149,14 +152,15 @@ router.post("/signup/venue", (req, res) => {
         type,
         genre,
         description,
-        photoSrc,
+        imgUrl,
         backline,
         food,
         capacity,
         cityName,
         passwordHash,
       })
-        .then(() => {
+        .then((venueData) => {
+          req.session.loggedInUser = venueData;
           res.redirect("/home/venue");
         })
         .catch((err) => {
@@ -294,8 +298,8 @@ router.post("/signin", (req, res) => {
 //SIGN OUT
 router.get('/signout', (req, res) => {
   req.session.destroy(() => {
-      res.redirect('/')
-    })
+    res.redirect('/')
+  })
 })
 
 module.exports = router;

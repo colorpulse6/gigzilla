@@ -22,7 +22,7 @@ router.get("/home/venue", (req, res) => {
 //VENUE->TOUR PAGE
 router.get("/home/venue/:tour", (req, res) => {
   let venueData = req.session.loggedInUser;
-  let tourId = req.params.tourId;
+  let tourId = req.params.tour;
   TourModel.findById(tourId)
     .then((tourData) => {
       res.render("users/venue/venue-tour.hbs", {

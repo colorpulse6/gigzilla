@@ -1,1 +1,23 @@
 <div>Musician Venue Page</div>
+
+<p>{{venueInfo.name}}</p>
+<img src="{{venueInfo.imgUrl}}">
+<p>Phone Number:{{venueInfo.phoneNumber}}</p>
+<p>Type of Venue: {{venueInfo.type}}</p>
+<p>Description: {{venueInfo.description}}</p>
+<p>Backline:{{venueInfo.backline}}</p>
+<p>Catering:{{venueInfo.food}}</p>
+<p>Capacity:{{venueInfo.capacity}}</p>
+
+
+<form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
+  <div class="form-group">
+    <label for="formGroupExampleInput">Your Email</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Message</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+  <button type="submit">Send</button>
+</form>
