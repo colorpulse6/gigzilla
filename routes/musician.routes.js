@@ -14,9 +14,9 @@ router.get("/profile/musician", (req, res) => {
 
 //Home Route
 router.get('/home/musician', (req, res) => {
- 
- res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
    
+ res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+  
 })
 
 //Profile Route
@@ -49,19 +49,23 @@ router.post('/home/musician', (req, res) => {
 })
 
 //Tour Route
-router.get('/home/musician/:tours', (req, res) => {
-    let id = req.params.tours
-    //console.log(id)
-    TourModel.findById(id)
-    .then((tourData)=> {
-        res.render('users/musician/musician-tour.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser, tourData});
-       // console.log(tourData)
-    })
-    .catch(() => {
-        res.send('Something is wrong')
-    })
+router.get("/home/musician/:tour", (req, res) => {
+    let id = req.params.tour;
+    let musicianData = req.session.loggedInUser;
   
-})
+    // console.log(id)
+    TourModel.findById(id)
+      .then((tourData) => {
+        res.render("users/musician/musician-tour.hbs", {
+          layout: "musicianLayout.hbs",
+          musicianData,
+          tourData,
+        });
+      })
+      .catch(() => {
+        res.send("Something is wrong");
+      });
+  });
 
 // //Get City from Tour
 // router.post("/home/musician/:tour", (req, res) => {
@@ -133,17 +137,29 @@ router.post("/home/musician/:tourId", (req, res) => {
   const { tourId } = req.params;
   let musicianData = req.session.loggedInUser;
 
-  VenueModel.find({ cityName: city })
-      .then(() => {
-      TourModel.findByIdAndUpdate(tourId, {
-        $push: { cities: [{ name: city }] },
-      }).then(() => {
-        res.redirect(`/home/musician/${tourId}`);
-      });
-    })
-    .catch((err) => {
-      res.send(err);
+  //TEST IF ITY IS IN TOUR MODEL
+  TourModel.findById(tourId)
+    .then((currentTour)=> {
+        if (currentTour.cities.filter(e => e.name === city).length > 0) {
+            
+            res.redirect(`/home/musician/${tourId}`);
+          } else {
+              //ADD IF CITY IS NOT IN TOUR MODEL
+            VenueModel.find({ cityName: city })
+            .then(() => {
+                TourModel.findByIdAndUpdate(tourId, {
+                $push: { cities: [{ name: city }] },
+                }).then(() => {
+                res.redirect(`/home/musician/${tourId}`);
+                });
+            })
+            .catch((err) => {
+            res.send(err);
     });
+          }
+        
+    })
+  
 });
 
 //City Route (EDIT: Might not need all code)

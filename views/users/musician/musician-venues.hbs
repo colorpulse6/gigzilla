@@ -1,14 +1,13 @@
 <div>Musician Venue Page</div>
 
 <p>{{venueInfo.name}}</p>
-<img src="{{venueInfo.imgUrl}}"">
-<p>Phone Number: {{venueInfo.phoneNumber}}</p>
+<img src="{{venueInfo.imgUrl}}">
+<p>Phone Number:{{venueInfo.phoneNumber}}</p>
 <p>Type of Venue: {{venueInfo.type}}</p>
 <p>Description: {{venueInfo.description}}</p>
-<p>Backline: {{venueInfo.backline}}</p>
-<p>Catering: {{venueInfo.food}}</p>
-<p>Capacity: {{venueInfo.capacity}}</p>
-<p>Is Available: {{venueInfo.isAvailable}}</p>
+<p>Backline:{{venueInfo.backline}}</p>
+<p>Catering:{{venueInfo.food}}</p>
+<p>Capacity:{{venueInfo.capacity}}</p>
 
 
 <form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
