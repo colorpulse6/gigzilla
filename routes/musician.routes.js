@@ -5,27 +5,38 @@ const TourModel = require("../models/tour.model");
 const VenueModel = require("../models/venue.model");
 const CityModel = require("../models/city.model");
 
-//MUSICIAN PROFILE
-router.get("/profile/musician", (req, res) => {
-  res.render("users/musician-profile.hbs", {
-    musicianData: req.session.loggedInUser,
-  });
+
+
+//Profile Route
+
+router.get("/home/musician/profile", (req, res) => {
+    res.render("users/musician/musician-profile.hbs", {
+        layout: "musicianLayout.hbs",
+        musicianData: req.session.loggedInUser
+    });
+    console.log(req.session.loggedInUser)
+     
 });
+
+
+//EDIT PROFILE
+router.post("/home/musician/profile", (req, res) => {
+    let musicianData = req.session.loggedInUser
+    const {phoneNumber, genre, bio} = req.body
+    MusicianModel.findByIdAndUpdate( musicianData._id, {phoneNumber: phoneNumber, genre: genre, bio: bio} )
+    .then((result) => {
+        console.log(result)
+        res.redirect("/home/musician/profile")
+    })
+
+})
 
 //Home Route
 router.get('/home/musician', (req, res) => {
    
- res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
-  
-})
-
-//Profile Route
-router.get("/home/musician/profile", (req, res) => {
-  res.render("users/musician/musician-profile.hbs", {
-    layout: "musicianLayout.hbs",
-    musicianData: req.session.loggedInUser,
-  });
-});
+    res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+     
+   })
 
 //Home Route Post
 router.post('/home/musician', (req, res) => {
@@ -60,10 +71,12 @@ router.get("/home/musician/:tour", (req, res) => {
           layout: "musicianLayout.hbs",
           musicianData,
           tourData,
+    
         });
       })
-      .catch(() => {
+      .catch((err) => {
         res.send("Something is wrong");
+        console.log(err)
       });
   });
 
@@ -137,24 +150,38 @@ router.post("/home/musician/:tourId", (req, res) => {
   const { tourId } = req.params;
   let musicianData = req.session.loggedInUser;
 
-  //TEST IF ITY IS IN TOUR MODEL
+  //TEST IF CITY IS IN TOUR MODEL
   TourModel.findById(tourId)
     .then((currentTour)=> {
         if (currentTour.cities.filter(e => e.name === city).length > 0) {
-            
+            //DISPLAY IF NOT
             res.redirect(`/home/musician/${tourId}`);
           } else {
-              //ADD IF CITY IS NOT IN TOUR MODEL
-            VenueModel.find({ cityName: city })
-            .then(() => {
-                TourModel.findByIdAndUpdate(tourId, {
-                $push: { cities: [{ name: city }] },
-                }).then(() => {
-                res.redirect(`/home/musician/${tourId}`);
-                });
+
+              
+            VenueModel.findOne({ cityName: city })
+            .then((venue) => {
+
+                //TEST IF CITY EXISTS
+                if(!venue){
+                    res.redirect(`/home/musician/${tourId}`);
+                   console.log('City Not Available')
+                   
+                } else{
+
+                    //ADD CITY IF IT IS NOT IN TOUR MODEL AND IF EXISTS
+                    TourModel.findByIdAndUpdate(tourId, {
+                        $push: { cities: [{ name: city }] },
+                        }).then(() => {
+                        res.redirect(`/home/musician/${tourId}`);
+                        });
+                        
+                }
+                
             })
             .catch((err) => {
             res.send(err);
+            
     });
           }
         
