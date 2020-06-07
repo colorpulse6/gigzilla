@@ -4,13 +4,17 @@ Hello {{musicianData.name}}
 Your tour is {{tourData.name}}
 
 <form method="POST" action="/home/musician/{{tourData._id}}">
-<input type="text" name="city" id="searchbar" placeholder="Search for a city..">
+<input type="text" name="city" id="city" placeholder="Search for a city..">
 <button type="submit">Add City</button>
+
 
 </form>
 
-{{#if result}}
-    {{#each result}}
-    <a href="/home/musician/:tour/{{this._id}}">{{this.name}}</a>
+{{#if cities}}
+    {{#each cities}}
+    <a href="/home/musician/{{./tourData._id}}/{{this._id}}">{{this.name}}</a> <br>
     {{/each}}
 {{/if}}
+
+</form>
+

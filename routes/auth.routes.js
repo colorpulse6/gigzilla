@@ -7,6 +7,7 @@ const VenueModel = require("../models/venue.model");
 //MUSICIAN SIGN UP
 router.get("/signup/musician", (req, res) => {
   res.render("auth/musician-signup.hbs");
+  
 });
 
 //MUSICIAN SIGN UP (FORM)
@@ -211,6 +212,7 @@ router.post("/signin", (req, res) => {
             if (doesItMatch) {
               // req.session is the special object that is available to you
               req.session.loggedInUser = musicianData;
+              console.log(musicianData)
               res.redirect("/home/musician");
             }
             //if passwords do not match
@@ -248,6 +250,7 @@ router.post("/signin", (req, res) => {
             if (doesItMatch) {
               // req.session is the special object that is available to you
               req.session.loggedInUser = venueData;
+              console.log(venueData)
               res.redirect("/home/venue");
             }
             //if passwords do not match
