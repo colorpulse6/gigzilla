@@ -11,7 +11,7 @@
 <p>Is Available: {{venueInfo.isAvailable}}</p>
 
 
-<form>
+<form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
   <div class="form-group">
     <label for="formGroupExampleInput">Your Email</label>
     <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email">
@@ -20,4 +20,5 @@
     <label for="exampleFormControlTextarea1">Message</label>
     <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
   </div>
+  <button type="submit">Send</button>
 </form>

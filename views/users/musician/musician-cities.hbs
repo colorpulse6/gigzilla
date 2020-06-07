@@ -1,7 +1,8 @@
-<div>Venues in {{cities.name}}</div>
-{{#each venues}}
-<a href="/home/musician/:tour/:cities/{{this._id}}"><P>{{this.name}}</P></a>
+<div>
+    <h1>Venues in {{cityName}}</h1>
+    {{#each venues}}
+        <a href="/home/musician/{{../tourId}}/{{cityName}}/{{this._id}}"><p>{{this.name}}</p></a>
+    {{/each }}
+</div>
 
-
-{{/each }}
 
