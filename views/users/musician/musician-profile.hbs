@@ -11,19 +11,17 @@
     <p>Phone Number: {{musicianData.phoneNumber}}</p>
     {{else}}
     <label for="phoneNumber">Enter your phone number:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    <input type="tel" id="phoneNumber" name="phoneNumber">
     {{/if}}
 
-    {{#if musicianData.genre}}
-    <p>Genre: {{musicianData.genre}}</p>
-    {{else}}
-     <label for="genre">Enter your genre:</label>
-    <input type="text" id="genre" name="genre">
-    {{/if}}
+    
+    <label for="genre">Enter your genre:</label>
+    <input type="text" id="genre" name="genre" value={{musicianData.genre}}>
+
 
     {{#if musicianData.bio}}
     <p>Bio: {{musicianData.bio}}</p>
-    {{else}}
+   
     <label for="bio">Please give a brief bio:</label>
     <input type="text-area" id="bio" name="bio">
     {{/if}}
