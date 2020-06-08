@@ -1128,7 +1128,7 @@ const venues = [
     capacity: 3277,
   },
   {
-    name: "Spider Lilies (Ci qing)",
+    name: "Spider Lilies",
     email: "telvin1x@fastcompany.com",
     cityName: "Copenhagen",
     passwordHash: "5gLPg5xm",
@@ -1208,7 +1208,7 @@ const venues = [
     capacity: 3403,
   },
   {
-    name: "Bridges of Madison County, The",
+    name: "Bridges of Madison County",
     email: "rverheijden22@nyu.edu",
     cityName: "Hamburg",
     passwordHash: "QGynJGfb",
@@ -1241,7 +1241,7 @@ const venues = [
     capacity: 3039,
   },
   {
-    name: "They Call Him Bulldozer (Lo chiamavano Bulldozer)",
+    name: "They Call Him Bulldozer",
     email: "dfishbourne24@amazonaws.com",
     cityName: "Montpellier",
     passwordHash: "wlO8BA7YD",
@@ -1290,7 +1290,7 @@ const venues = [
     capacity: 1272,
   },
   {
-    name: "Rules of Single Life (Sinkkuelämän säännöt)",
+    name: "Rules of Single Life",
     email: "pmeininking27@jiathis.com",
     cityName: "Vienna",
     passwordHash: "MlG7Tsl",
@@ -1306,7 +1306,7 @@ const venues = [
     capacity: 4064,
   },
   {
-    name: "Screamers: The Hunting",
+    name: "Screamers",
     email: "ribbitt28@parallels.com",
     cityName: "Berlin",
     passwordHash: "SXIoTWDT",
@@ -1355,7 +1355,7 @@ const venues = [
     capacity: 3219,
   },
   {
-    name: "Cowards Bend the Knee (a.k.a. The Blue Hands)",
+    name: "Cowards Bend the Knee",
     email: "lsambles2b@newyorker.com",
     cityName: "Madrid",
     passwordHash: "Uu5Yhz",
@@ -1371,7 +1371,7 @@ const venues = [
     capacity: 3225,
   },
   {
-    name: "It's My Mother's Birthday Today",
+    name: "Mother's Birthday",
     email: "bpenswick2c@xinhuanet.com",
     cityName: "Hamburg",
     passwordHash: "Z8NW1W5g6l8a",
@@ -1387,7 +1387,7 @@ const venues = [
     capacity: 4003,
   },
   {
-    name: "Omen, The",
+    name: "Omen",
     email: "cmccorkindale2d@diigo.com",
     cityName: "Rome",
     passwordHash: "LRiHhIOx",
@@ -1419,7 +1419,7 @@ const venues = [
     capacity: 1124,
   },
   {
-    name: "Colonel Redl (Oberst Redl)",
+    name: "Colonel Redl",
     email: "ahewson2f@washington.edu",
     cityName: "Budapest",
     passwordHash: "xfZvWD8DxNcR",
@@ -1468,7 +1468,7 @@ const venues = [
     capacity: 384,
   },
   {
-    name: "Rocket, The (a.k.a. Maurice Richard)",
+    name: "Rocket",
     email: "pbewicke2i@telegraph.co.uk",
     cityName: "Dublin",
     passwordHash: "JpExLkC",
@@ -1518,7 +1518,7 @@ const venues = [
     capacity: 3183,
   },
   {
-    name: "Story of a Prostitute (Shunpu den)",
+    name: "Story of a Prostitute",
     email: "phawken2l@prnewswire.com",
     cityName: "Milan",
     passwordHash: "mEf0hGtL8tSI",
@@ -1534,7 +1534,7 @@ const venues = [
     capacity: 3717,
   },
   {
-    name: "Love Can Seriously Damage Your Health",
+    name: "Damage Your Health",
     email: "bprosch2m@engadget.com",
     cityName: "Warsaw",
     passwordHash: "TLUDCz7oI0",
@@ -1550,7 +1550,7 @@ const venues = [
     capacity: 3199,
   },
   {
-    name: "Stand, The",
+    name: "Stand",
     email: "ccocker2n@kickstarter.com",
     cityName: "Stockholm",
     passwordHash: "qpjzApAep",
@@ -1566,7 +1566,7 @@ const venues = [
     capacity: 2320,
   },
   {
-    name: "A Kind of America 2",
+    name: "Kind of America",
     email: "gaylmer2o@google.cn",
     cityName: "Madrid",
     passwordHash: "yt8vxDn8z0a",
@@ -1599,7 +1599,7 @@ const venues = [
     capacity: 4626,
   },
   {
-    name: "Man Apart, A",
+    name: "Man Apart",
     email: "cpurshouse2q@hubpages.com",
     cityName: "Barcelona",
     passwordHash: "o0jUxnitTc",

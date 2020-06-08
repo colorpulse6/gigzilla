@@ -1,17 +1,53 @@
 const express = require("express");
 const router = express.Router();
-
+const VenueModel = require("../models/venue.model");
 const TourModel = require("../models/tour.model");
+
+//VENUE PROFILE
+router.get("/home/venue/profile", (req, res) => {
+  res.render("users/venue/venue-profile.hbs", {
+    layout: "venue-layout",
+    venueData: req.session.loggedInUser,
+  });
+});
+
+router.post("/home/venue/profile", (req, res) => {
+  let venueData = req.session.loggedInUser
+  const { phoneNumber, type, genre, description, capacity, isAvailable, backline, food } = req.body
+  console.log(venueData)
+  VenueModel.findByIdAndUpdate( venueData._id, { phoneNumber, type, genre, description, capacity, isAvailable, backline, food } )
+    .then((result) => {
+      VenueModel.findById(venueData._id)
+        .then((newResult) => {
+          req.session.loggedInUser = newResult
+          console.log(newResult)
+          res.redirect("/home/venue/profile")
+        })
+      
+      })
+
+})
 
 //VENUE HOMEPAGE
 router.get("/home/venue", (req, res) => {
   let venueData = req.session.loggedInUser;
-  TourModel.find()
+
+  //FIND TOURS THAT WILL BE VISITING VENUE'S CITY
+  TourModel.find({ 'cities.name': venueData.cityName, 'cities.selectedVenue': { $in: null }})
     .then((tourData) => {
+      console.log(tourData)
+      tourData = tourData.map((tour) => {
+        tour.cities.forEach((city) => { 
+          if (city.name === venueData.cityName && city.contactedByVenue) {
+            city.isSameCity = true;
+            }
+        })
+        return tour;
+      })
+      console.log(tourData)
       res.render("users/venue/venue-home.hbs", {
-        layout: "venue-layout",
-        venueData,
-        tourData,
+        layout: "venue-layout.hbs",
+        venueData, tourData,
       });
     })
     .catch(() => {
@@ -23,6 +59,7 @@ router.get("/home/venue", (req, res) => {
 router.get("/home/venue/:tour", (req, res) => {
   let venueData = req.session.loggedInUser;
   let tourId = req.params.tour;
+
   TourModel.findById(tourId)
     .then((tourData) => {
       res.render("users/venue/venue-tour.hbs", {
@@ -38,22 +75,19 @@ router.get("/home/venue/:tour", (req, res) => {
 
 //VENUE->TOUR CONTACT FORM PAGE
 router.post("/home/venue/:tour", (req, res) => {
-  let tourId = req.params.tourId;
-  TourModel.findByIdAndUpdate(tourId, { $set: { contactedByVenue: true } })
+  let venueData = req.session.loggedInUser;
+  let tourId = req.params.tour;
+
+  TourModel.update({ _id: tourId, 'cities.name': venueData.cityName }, { $set: { 'cities.$.contactedByVenue': true } } )
     .then(() => {
+      
       res.redirect("/home/venue");
     })
-    .catch(() => {
-      res.send("Unable to contact tour");
+    .catch((err) => {
+      res.send(err);
     });
 });
 
-//VENUE PROFILE
-router.get("/profile/venue", (req, res) => {
-  res.render("users/venue/venue-profile.hbs", {
-    layout: "venue-layout",
-    venueData: req.session.loggedInUser,
-  });
-});
+
 
 module.exports = router;

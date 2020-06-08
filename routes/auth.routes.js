@@ -212,7 +212,7 @@ router.post("/signin", (req, res) => {
             if (doesItMatch) {
               // req.session is the special object that is available to you
               req.session.loggedInUser = musicianData;
-              console.log(musicianData)
+              // console.log(musicianData)
               res.redirect("/home/musician");
             }
             //if passwords do not match
@@ -250,7 +250,7 @@ router.post("/signin", (req, res) => {
             if (doesItMatch) {
               // req.session is the special object that is available to you
               req.session.loggedInUser = venueData;
-              console.log(venueData)
+              // console.log(venueData)
               res.redirect("/home/venue");
             }
             //if passwords do not match
@@ -282,10 +282,6 @@ router.get('/signout', (req, res) => {
   req.session.destroy(() => {
     res.redirect('/')
   })
-})
-
-router.get('/home/venue', (req, res) => {
-    res.render('users/venue/venue-home.hbs', {venueData: req.session.loggedInUser});
 })
 
 module.exports = router;
