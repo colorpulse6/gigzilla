@@ -38,8 +38,9 @@ router.post("/home/musician/profile", (req, res) => {
 
 //Home Route
 router.get('/home/musician', (req, res) => {
-   
+    musicianData = req.session.loggedInUser;
     res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+    console.log(musicianData)
      
    })
 

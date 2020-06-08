@@ -11,7 +11,7 @@
     </div>
     
     
-    <a href="/home/musician/{{tourData._id}}"><button>Build Tour</button></a>
+    <a href="/home/musician/{{tourData._id}}"><button>Build New Tour</button></a>
 </form>
 
 
@@ -19,6 +19,6 @@
 <h1>Active Tours</h1>
 {{#each musicianData.tours}}
 
-<p>{{this}}</p>
+<a href="/home/musician/{{this}}"><p>{{this}}</p></a>
 
 {{/each}}
