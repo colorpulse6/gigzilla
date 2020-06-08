@@ -82,6 +82,20 @@ router.post('/home/musician', (req, res) => {
         })
 })
 
+
+//Delete City
+
+router.get('/home/musician/delete/:tourId/:city', (req, res) => {
+
+    const {tourId, city} = req.params
+    TourModel.update({_id: tourId}, {$pull: {cities: {_id:city}}})
+    .then((result) => {
+        
+        res.redirect(`/home/musician/${tourId}`)
+    })
+
+})
+
 //Tour Route
 router.get("/home/musician/:tour", (req, res) => {
     let id = req.params.tour;
