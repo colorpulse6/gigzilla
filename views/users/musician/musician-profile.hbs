@@ -11,7 +11,7 @@
     <p>Phone Number: {{musicianData.phoneNumber}}</p>
     {{else}}
     <label for="phoneNumber">Enter your phone number:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}">
+    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}">
     {{/if}}
 
     {{#if musicianData.genre}}
