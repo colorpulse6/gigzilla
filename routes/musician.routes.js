@@ -24,10 +24,15 @@ router.post("/home/musician/profile", (req, res) => {
     let musicianData = req.session.loggedInUser
     const {phoneNumber, genre, bio} = req.body
     MusicianModel.findByIdAndUpdate( musicianData._id, {phoneNumber: phoneNumber, genre: genre, bio: bio} )
-    .then((result) => {
-        console.log(result)
-        res.redirect("/home/musician/profile")
-    })
+      .then((result) => {
+        MusicianModel.findById(musicianData._id)
+          .then((newResult) => {
+            req.session.loggedInUser = newResult
+            console.log(newResult)
+            res.redirect("/home/musician/profile")
+          })
+        
+        })
 
 })
 
@@ -65,7 +70,8 @@ router.get("/home/musician/:tour", (req, res) => {
     let musicianData = req.session.loggedInUser;
   
     // console.log(id)
-    TourModel.findById(id)
+  TourModel.findById(id)
+    .populate('cities.selectedVenue')
       .then((tourData) => {
         res.render("users/musician/musician-tour.hbs", {
           layout: "musicianLayout.hbs",
@@ -244,17 +250,13 @@ router.get("/home/musician/:tourId/:cityName/:venueId", (req, res) => {
 
 router.post("/home/musician/:tourId/:cityName/:venueId", (req, res) => {
     const { tourId, cityName, venueId } = req.params;
-    VenueModel.findById(venueId)
-        .then((venue) => {
-            TourModel.findById({ _id: tourId })
-                .populate('VenueUser')
-                .exec()
-                .then((tourData) => {
-                    // console.log(TourModel.populated())
-                    console.log(tourData.cities[0].selectedVenue.populated())
+  TourModel.update({ _id: tourId, 'cities.name': cityName }, { $set: { 'cities.$.selectedVenue': venueId } } )
+        .then((tourData) => {
+              // console.log(tourData.cities[1].selectedVenue)
+              res.redirect(`/home/musician/${tourId}`)
          
                 })
-            })
+         
                 
         .catch((err) => {
             console.log(err)

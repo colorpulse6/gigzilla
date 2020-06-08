@@ -278,7 +278,11 @@ router.post("/signin", (req, res) => {
   }
 });
 
-
+router.get('/signout', (req, res) => {
+  req.session.destroy(() => {
+    res.redirect('/')
+  })
+})
 
 router.get('/home/venue', (req, res) => {
     res.render('users/venue/venue-home.hbs', {venueData: req.session.loggedInUser});
