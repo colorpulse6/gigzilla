@@ -10,6 +10,7 @@ const CityModel = require("../models/city.model");
 //Profile Route
 
 router.get("/home/musician/profile", (req, res) => {
+    
     res.render("users/musician/musician-profile.hbs", {
         layout: "musicianLayout.hbs",
         musicianData: req.session.loggedInUser
@@ -23,6 +24,7 @@ router.get("/home/musician/profile", (req, res) => {
 router.post("/home/musician/profile", (req, res) => {
     let musicianData = req.session.loggedInUser
     const {phoneNumber, genre, bio} = req.body
+
     MusicianModel.findByIdAndUpdate( musicianData._id, {phoneNumber: phoneNumber, genre: genre, bio: bio} )
       .then((result) => {
         MusicianModel.findById(musicianData._id)
@@ -39,10 +41,25 @@ router.post("/home/musician/profile", (req, res) => {
 //Home Route
 router.get('/home/musician', (req, res) => {
     musicianData = req.session.loggedInUser;
-    res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
-    console.log(musicianData)
+    
+
+    MusicianModel.findOne({_id: musicianData._id})
+      .populate('tours')
+      //.execPopulate()
+      .then((musician) => {
+          
+        res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser, musician})
+        
+
+      })
+      .catch((err) => {
+        res.send("Something is wrong");
+        console.log(err)
+      });
      
    })
+
+  
 
 //Home Route Post
 router.post('/home/musician', (req, res) => {

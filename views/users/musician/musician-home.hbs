@@ -17,8 +17,8 @@
 
 
 <h1>Active Tours</h1>
-{{#each musicianData.tours}}
+{{#each musician.tours}}
 
-<a href="/home/musician/{{this}}"><p>{{this}}</p></a>
+<a href="/home/musician/{{this._id}}"><p>{{this.name}}</p></a>
 
 {{/each}}

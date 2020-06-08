@@ -33,7 +33,6 @@ const tourSchema = new Schema({
         contactedByVenue: Boolean,    
     },
   ],
-  contactedByVenue: Boolean,
 });
 
 module.exports = model("Tour", tourSchema);

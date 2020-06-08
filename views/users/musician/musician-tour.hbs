@@ -14,7 +14,9 @@ Your tour is {{tourData.name}}
 {{#if tourData.cities}}
     {{#each tourData.cities}}
     <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
+    <button name="Delete" type="submit">Delete City</button>
     <p>{{this.selectedVenue.name}}</p>
+    
     {{/each}}
 {{/if}}
 
