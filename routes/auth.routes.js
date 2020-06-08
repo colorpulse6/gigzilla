@@ -6,8 +6,9 @@ const VenueModel = require("../models/venue.model");
 
 //MUSICIAN SIGN UP
 router.get("/signup/musician", (req, res) => {
-  res.render("auth/musician-signup.hbs");
-  
+  res.render("auth/musician-signup.hbs", {
+    layout: "main-layout"
+  });
 });
 
 //MUSICIAN SIGN UP (FORM)
@@ -82,7 +83,9 @@ router.post("/signup/musician", (req, res) => {
 
 //VENUE SIGN UP
 router.get("/signup/venue", (req, res) => {
-  res.render("auth/venue-signup.hbs");
+  res.render("auth/venue-signup.hbs", {
+    layout: "main-layout"
+  });
 });
 
 //VENUE SIGN UP (FORM)
@@ -173,7 +176,9 @@ router.post("/signup/venue", (req, res) => {
 
 //SIGN IN FOR BOTH USERS
 router.get("/signin", (req, res) => {
-  res.render("auth/signin.hbs");
+  res.render("auth/signin.hbs", {
+    layout: "main-layout"
+  });
 });
 
 //SIGN IN (FORM)

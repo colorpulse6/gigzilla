@@ -7,6 +7,14 @@
     <p>Email: {{venueData.email}}</p>
     <p>City: {{venueData.cityName}}</p>
     
+    <img src="{{venueData.imgUrl}}">
+    <label for="imgUrl">Insert your image URL</label>
+    <input type="text" id="imgUrl" name="imgUrl" value="{{venueData.imgUrl}}">
+
+    {{!-- <label for="imgUrl">Upload a photo of your venue:</label>
+    <input type="file" id="imgUrl" name="imgUrl" accept="image/png, image/jpeg">
+    <input type="submit"> --}}
+    
     <label for="phoneNumber">Enter your phone number:</label>
     <input type="tel" id="phoneNumber" name="phoneNumber" value="{{venueData.phoneNumber}}">
 

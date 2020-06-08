@@ -4,6 +4,7 @@
     <div>
        {{#each tourData}}
        <a href="/home/venue/{{this._id}}"><p>{{this.name}}</p></a>
+       <img src="{{this.imgUrl}}">
        {{#each this.cities}}
             {{#if this.isSameCity}}
                 <p>Contacted</p>
