@@ -11,11 +11,13 @@ router.get("/home/venue/profile", (req, res) => {
   });
 });
 
+//VENUE PROFILE FORM POST
 router.post("/home/venue/profile", (req, res) => {
   let venueData = req.session.loggedInUser
-  const { phoneNumber, type, genre, description, capacity, isAvailable, backline, food } = req.body
-  console.log(venueData)
-  VenueModel.findByIdAndUpdate( venueData._id, { phoneNumber, type, genre, description, capacity, isAvailable, backline, food } )
+  const { phoneNumber, type, genre, description, capacity, isAvailable, backline, food, imgUrl } = req.body
+  
+  //LOOK FOR VENUE AND UPDATE THE MODEL
+  VenueModel.findByIdAndUpdate( venueData._id, { phoneNumber, type, genre, description, capacity, isAvailable, backline, food, imgUrl } )
     .then((result) => {
       VenueModel.findById(venueData._id)
         .then((newResult) => {
@@ -87,7 +89,5 @@ router.post("/home/venue/:tour", (req, res) => {
       res.send(err);
     });
 });
-
-
 
 module.exports = router;

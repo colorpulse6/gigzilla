@@ -86,7 +86,6 @@ router.post("/signup/musician", (req, res) => {
 router.get("/signup/venue", (req, res) => {
   res.render("auth/venue-signup.hbs", {
     layout: "main-layout"
-
   });
 });
 
