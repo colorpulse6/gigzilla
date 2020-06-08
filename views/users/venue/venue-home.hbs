@@ -4,6 +4,11 @@
     <div>
        {{#each tourData}}
        <a href="/home/venue/{{this._id}}"><p>{{this.name}}</p></a>
+       {{#each this.cities}}
+            {{#if this.isSameCity}}
+                <p>Contacted</p>
+            {{/if}}
+       {{/each}}
        {{/each}}
     </div>
 </div>

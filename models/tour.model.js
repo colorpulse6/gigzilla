@@ -21,7 +21,7 @@ const { Schema, model } = require("mongoose");
 
 const tourSchema = new Schema({
   name: String,
-  photoSrc: String,
+  imgUrl: String,
   cities: [
     {
         name: String,
@@ -32,7 +32,7 @@ const tourSchema = new Schema({
           },
         contactedByVenue: Boolean,    
     },
-  ],
+  ]
 });
 
 module.exports = model("Tour", tourSchema);

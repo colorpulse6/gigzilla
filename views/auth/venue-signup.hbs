@@ -6,18 +6,18 @@
 
     <label for="name">Name:</label>
     <input type="text" name="name" id="name" required >
+
     <label for="email">Email:</label>
     <input type="email" name="email" id="email" required>
+
     <label for="password">Password:</label>
     <input type="password" name="password" id="password" required>
     
-    
-    <label for="phoneNumber">Phone Number:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> 
-
     <label for="cityName">What City Are You Located In:</label>
     <input type="text" id="cityName" name="cityName" required>
 
+    <label for="phoneNumber">Phone Number:</label>
+    <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"> 
 
     <label for="type">What Type of Venue:</label>
     <input type="text" id="type" name="type">
@@ -32,17 +32,16 @@
     <input type="text" id="capacity" name="capacity" required>
 
     <div>
+      <label for="isAvailable">Availability:</label><br>
+    <input type="checkbox" id="isAvailable" name="isAvailable" value="true">
+
         <label for="backline">Backline Provided</label><br>
-        <input type="checkbox" id="backline" name="backline" value="backline">
+        <input type="checkbox" id="backline" name="backline" value="true">
 
         <label for="food">Catering Provided</label><br>
-        <input type="checkbox" id="food" name="food" value="food">
+        <input type="checkbox" id="food" name="food" value="true">
     </div>
         
-    
-    
-
-
     <button type="submit" >Sign Up</button>
 </form>
 

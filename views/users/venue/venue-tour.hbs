@@ -1,13 +1,11 @@
 <div>
     <div>
-        {{#each tourData}}
-        <h2>{{this.name}}</h2>
-        <img src="{{this.imgUrl}}"
-        {{/each}}
+        <h2>{{tourData.name}}</h2>
+        <img src="{{tourData.imgUrl}}">
     </div>
     <div>
         <h3>Contact Tour</h3>
-        <form method="POST" action="/home/venue/:tour">
+        <form method="POST" action="/home/venue/{{tourData._id}}">
             <label for="email">Contact Email</label>
             <input type="email" name="email" id="email" value="{{venueData.email}}" required>
             <label for="message">Message</label>
