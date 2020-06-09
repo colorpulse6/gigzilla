@@ -37,16 +37,23 @@ router.get("/home/venue", (req, res) => {
   //FIND TOURS THAT WILL BE VISITING VENUE'S CITY
   TourModel.find({ 'cities.name': venueData.cityName, 'cities.selectedVenue': { $in: null }})
     .then((tourData) => {
-      console.log(tourData)
+      //console.log(tourData)
       tourData = tourData.map((tour) => {
         tour.cities.forEach((city) => { 
           if (city.name === venueData.cityName && city.contactedByVenue) {
             city.isSameCity = true;
+            } 
+
+           if(city.selectedVenue){
+                    
+              city.confirmed = true;
+              
+              console.log(city.selectedVenue)
             }
         })
         return tour;
       })
-      console.log(tourData)
+      //console.log(tourData)
       res.render("users/venue/venue-home.hbs", {
         layout: "venue-layout.hbs",
         venueData, tourData,
@@ -56,6 +63,27 @@ router.get("/home/venue", (req, res) => {
       res.send("Unable to view venue homepage");
     });
 });
+
+//ADD VENUE TO TOUR MODEL
+
+router.get("/home/venue/:tour/add", (req, res) => {
+  let venueData = req.session.loggedInUser;
+  let tourId = req.params.tour;
+  console.log(venueData.cityName)
+
+  TourModel.update({ _id: tourId, 'cities.name': venueData.cityName }, { $set: { 'cities.$.selectedVenue': venueData._id } } )
+        .then((tourData) => {
+              
+              res.redirect("/home/venue")
+         
+                })
+         
+                
+        .catch((err) => {
+            console.log(err)
+        })
+
+})
 
 //VENUE->TOUR PAGE
 router.get("/home/venue/:tour", (req, res) => {

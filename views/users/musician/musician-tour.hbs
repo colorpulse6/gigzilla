@@ -13,9 +13,22 @@ Your tour is {{tourData.name}}
 
 {{#if tourData.cities}}
     {{#each tourData.cities}}
-    <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
-    <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button name="Delete" type="submit">Delete City</button></a>
-    <p>{{this.selectedVenue.name}}</p>
+      <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
+      <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button name="delete" type="submit">Delete City</button></a>
+
+    {{#if this.contactedByMusician}}
+      {{#each this.possibleVenues}}
+        <p>Contacted: {{this}}</p>
+        <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button>Confirm</button></a>
+
+      {{/each}}
+      
+    {{/if}}
+    
+    
+
+    
+    <p>Confirmed: {{this.selectedVenue.name}}</p>
     
     {{/each}}
 {{/if}}

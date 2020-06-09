@@ -10,10 +10,12 @@ const musicianSchema = new Schema(
      required: [true, 'Please enter username'],
      
    },
-   tours: [{
+   tours: [
+     {
      type: Schema.Types.ObjectId,
      ref: 'Tour'
-   }],
+   }
+  ],
 
    passwordHash: {
      type: String,

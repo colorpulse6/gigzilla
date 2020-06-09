@@ -1,5 +1,7 @@
 <div>Musician Profile Page</div>
 
+<h1>{{musicianData.name}} Profile</h1>
+
 <form method="POST" action="/home/musician/profile">
 
 
@@ -23,6 +25,8 @@
 
     <button type="submit" >Save Changes</button>
 </form>
+
+
 
 {{#if errorMessage}}
   <div class="error">{{errorMessage}}</div>

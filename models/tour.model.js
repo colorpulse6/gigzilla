@@ -11,6 +11,8 @@ const tourSchema = new Schema({
             ref: 'VenueUser'
           },
         contactedByVenue: Boolean,    
+        contactedByMusician: Boolean,
+        possibleVenues: [String]
     },
   ]
 });

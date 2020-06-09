@@ -2,12 +2,18 @@
 
 <p>{{venueInfo.name}}</p>
 <img src="{{venueInfo.imgUrl}}">
-<p>Phone Number:{{venueInfo.phoneNumber}}</p>
+<p>Phone Number: {{venueInfo.phoneNumber}}</p>
 <p>Type of Venue: {{venueInfo.type}}</p>
 <p>Description: {{venueInfo.description}}</p>
-<p>Backline:{{venueInfo.backline}}</p>
-<p>Catering:{{venueInfo.food}}</p>
-<p>Capacity:{{venueInfo.capacity}}</p>
+<p>Backline: {{venueInfo.backline}}</p>
+<p>Catering: {{venueInfo.food}}</p>
+<p>Capacity: {{venueInfo.capacity}}</p>
+
+
+
+<div>
+  <a href="/home/musician/{{tourId}}/{{cityName}}">Back to Cities</a>
+</div>
 
 
 <form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
@@ -17,7 +23,7 @@
   </div>
   <div class="form-group">
     <label for="exampleFormControlTextarea1">Message</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="45"></textarea>
   </div>
   <button type="submit">Send</button>
 </form>

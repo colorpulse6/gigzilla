@@ -3,22 +3,22 @@
 <h2>Hello {{musicianData.name}}</h2>
 
 
-
-
 <form method="POST" action="/home/musician">
-    <div><label for="name">Tour Name:</label>
+    <div><label for="name">Please Enter Tour Name:</label>
         <input type="name" name="name" id="name" required>
     </div>
     
-    
+
     <a href="/home/musician/{{tourData._id}}"><button>Build New Tour</button></a>
 </form>
-
 
 
 <h1>Active Tours</h1>
 {{#each musician.tours}}
 
 <a href="/home/musician/{{this._id}}"><p>{{this.name}}</p></a>
+<a href="/home/musician/delete/{{this._id}}"><button name="delete" type="submit">Delete Tour</button></a>
+
+    
 
 {{/each}}
