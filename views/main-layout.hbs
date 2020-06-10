@@ -6,8 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Gigzilla</title>
-  <link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
-  <!-- CSS only -->
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Modak&display=swap" rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
     integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
@@ -15,11 +17,50 @@
 </head>
 
 <body>
-  <div class="main-content">
-    {{{body}}}
+  <div id="content-wrap">
+    <nav class="navbar navbar-expand-lg navbar-custom navbar-dark">
+      <a class="navbar-brand" href="/">gigzilla</a>
+      <a href="/signin"><button type="button" class="btn btn-warning">SIGN IN</button></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="#">About</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      {{{body}}}
+    </div>
   </div>
 
-  <!-- JS, Popper.js, and jQuery -->
+  <footer class="navbar-fixed-bottom">
+      <h5>gigzilla</h5>
+      <div class="footer-content">
+        <div class="footer-links">
+          <p>About Us</p>
+          <p>Help</p>
+          <p>Contact</p>
+        </div>
+        <div class="footer-social">
+          <p>Follow Us</p>
+          <div class="footer-social-icons">
+            <img src="/images/f_logo_RGB-White_58.png">
+            <img src="/images/glyph-logo_May2016.png">
+            <img src="/images/Twitter_Social_Icon_Circle_White.png">
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+
+  <!-- Bootstrap JS, Popper.js, and jQuery -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

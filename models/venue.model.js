@@ -25,6 +25,7 @@ const venueSchema = new Schema(
     isBooked: Boolean,
     isAvailable: Boolean,
     backline: Boolean,
+    isContacted: Boolean,
     food: Boolean,
     capacity: {
       type: Number,

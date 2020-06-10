@@ -6,9 +6,19 @@
        <a href="/home/venue/{{this._id}}"><p>{{this.name}}</p></a>
        <img src="{{this.imgUrl}}">
        {{#each this.cities}}
+             
             {{#if this.isSameCity}}
-                <p>Contacted</p>
+                <p>Contacted</p> 
+                <a href="/home/venue/{{../this._id}}/add"><button>Confirm</button></a>   
             {{/if}}
+
+            {{#if this.confirmed }}
+                <p>Confirmed</p>
+            {{/if}}
+              
+            
+            
+                
        {{/each}}
        {{/each}}
     </div>

@@ -193,7 +193,7 @@ router.post("/signin", (req, res) => {
   //REQUIRING EMAIL AND PASSWORD
   if (!email || !password || !type) {
     res.status(500).render("auth/signin.hbs", {
-      errorMessage: "Please enter email and password",
+      errorMessage: "Please enter email and password", layout: "main-layout"
     });
     return;
   }
@@ -243,7 +243,7 @@ router.post("/signin", (req, res) => {
       //throw an error if the user does not exists
       .catch(() => {
         res.status(500).render("auth/signin.hbs", {
-          errorMessage: "Something went wrong",
+          errorMessage: "Something went wrong", layout: "main-layout"
         });
         return;
       });
