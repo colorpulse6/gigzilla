@@ -1,10 +1,18 @@
-<div>
+<div class="main-page-div">
 
-    <form method="GET" action="/home/musician/{{tourId}}/{{cityName}}">
-        <input name="search" type="text">
-       
+    <div class ="tours-header main-header-div">
+        <h2>Hello {{musicianData.name}}</h2>
+    </div>
 
-        <label for="capacity">Select Capacity:</label>
+    <div class="search-venue">
+
+        <form method="GET" action="/home/musician/{{tourId}}/{{cityName}}">
+
+
+        <input name="search" type="text" placeholder="Search for a keyword..">
+
+        <p>Select Capacity:</p>
+        <label for="capacity"></label>
         <select name="capacity" id="capacity">
         <option value="5000">---</option>   
         <option value="500"> Up to 500</option>
@@ -19,13 +27,19 @@
 
         <label for="food">Catering Provided</label><br>
         <input type="checkbox" id="food" name="food" value="true">
-    
-        <button type="submit">Filter</button>
+    <div>
+        <button type="submit" class="button">Filter</button>
         
     </form>
 
-    <a href="/home/musician/{{tourId}}/{{cityName}}"><button>Show all</button>
-</a>
+    <a href="/home/musician/{{tourId}}/{{cityName}}"><button class="button">Show all</button>
+    </a>
+    </div>
+
+
+
+    </div>
+    
 
 
     <h1>Venues in {{cityName}}</h1>

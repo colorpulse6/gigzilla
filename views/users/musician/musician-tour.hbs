@@ -1,4 +1,4 @@
-<div>Musician Tour Page</div>
+
 
 <div class = "main-page-div">
 
@@ -28,14 +28,26 @@
 
     </div>
 
+
+    {{!-- <div class="card" style="width: 18rem;">
+      <img class="card-img-top" src="{{this.tour.imgSrc}}" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Card title</h5>
+        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+  </div> --}}
+
       
 
     <div class = "display-cities">
       {{#if tourData.cities}}
         {{#each tourData.cities}}
-          <div class="each-city">
-            <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
-          <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="button secondary-button" name="delete" type="submit">Delete City</button></a>
+          <div class="each-city card">
+            
+            <div class="card-body">
+              <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
+            <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="button secondary-button" name="delete" type="submit">Delete City</button></a>
 
             {{#if this.contactedByMusician}}
               {{#each this.possibleVenues}}
@@ -47,6 +59,9 @@
         <div class="city-confirmed">
           <p>Confirmed: {{this.selectedVenue.name}}</p>
         </div>
+
+            </div>
+            
 
             
           </div>

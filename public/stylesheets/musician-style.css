@@ -1,7 +1,7 @@
 /* Navbar */
 
 .navbar-custom {
-    background-color: #121212;
+    background-color: #851191;
   }
   
   .navbar-custom .navbar-brand,
@@ -29,7 +29,7 @@
     font-weight: 500;
   }
 
-  
+
 
   /* Home Page */
 .main-page-div {
@@ -44,6 +44,7 @@
     background-color:black;
     color:white;
     font-family: 'Modak', cursive;
+    padding:10px;
     
     display:flex;
     flex-direction: column;
@@ -133,17 +134,29 @@
     width:90%;
     border-radius:10px;
     font-size:15px;
-   
 }
 
 .each-city {
-margin:10px;
-font-size:10px;
-border:2px solid #851191
+    margin:10px;
+    font-size:10px;
+    width: 15rem;
+    float:left
+}
+
+.city-confirmed {
+    bottom:10px;
 }
 
 .backbtn-div {
     position:relative;
     margin:20px;
+}
+
+
+/* CITIES */
+
+.search-venue {
+    display:flex;
+    margin:50px;
 }
 
