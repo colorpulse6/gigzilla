@@ -4,6 +4,11 @@ Hello {{musicianData.name}}
 Your tour is {{tourData.name}}
 
 <form method="POST" action="/home/musician/{{tourData._id}}">
+
+{{#if tourData.cities.contactedByVenue}}
+<a href="/home/musician/{{this._id}}"><button>Confirm</button></a>
+{{/if}}
+
 <input type="text" name="city" id="searchbar" placeholder="Search for a city..">
 <button type="submit">Add City</button>
 
@@ -14,11 +19,15 @@ Your tour is {{tourData.name}}
 {{#if tourData.cities}}
     {{#each tourData.cities}}
     <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
+    <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button name="Delete" type="submit">Delete City</button></a>
     <p>{{this.selectedVenue.name}}</p>
+    
     {{/each}}
 {{/if}}
 
 {{#if errorMessage}}
   <div class="error">{{errorMessage}}</div>
 {{/if}} 
+
+<a href="/home/musician/">Back to Home</a>
 

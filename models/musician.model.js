@@ -12,7 +12,7 @@ const musicianSchema = new Schema(
    },
    tours: [{
      type: Schema.Types.ObjectId,
-     ref: 'tour'
+     ref: 'Tour'
    }],
 
    passwordHash: {

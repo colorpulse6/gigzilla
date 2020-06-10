@@ -7,24 +7,19 @@
     <p>Email: {{musicianData.email}}</p>
     
    
-    {{#if musicianData.phoneNumber}}
-    <p>Phone Number: {{musicianData.phoneNumber}}</p>
-    {{else}}
+    
     <label for="phoneNumber">Enter your phone number:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber">
-    {{/if}}
+    <input type="tel" id="phoneNumber" name="phoneNumber" value="{{musicianData.phoneNumber}}">
+    
 
     
     <label for="genre">Enter your genre:</label>
-    <input type="text" id="genre" name="genre" value={{musicianData.genre}}>
+    <input type="text" id="genre" name="genre" value="{{musicianData.genre}}">
 
 
-    {{#if musicianData.bio}}
-    <p>Bio: {{musicianData.bio}}</p>
-   
     <label for="bio">Please give a brief bio:</label>
-    <input type="text-area" id="bio" name="bio">
-    {{/if}}
+    <input type="text-area" id="bio" name="bio" rows="4" cols="50" value="{{musicianData.bio}}">
+    
 
     <button type="submit" >Save Changes</button>
 </form>

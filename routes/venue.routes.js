@@ -37,7 +37,7 @@ router.get("/home/venue", (req, res) => {
   //FIND TOURS THAT WILL BE VISITING VENUE'S CITY
   TourModel.find({ 'cities.name': venueData.cityName, 'cities.selectedVenue': { $in: null }})
     .then((tourData) => {
-      console.log(tourData)
+      // console.log(tourData)
       tourData = tourData.map((tour) => {
         tour.cities.forEach((city) => { 
           if (city.name === venueData.cityName && city.contactedByVenue) {
@@ -46,7 +46,6 @@ router.get("/home/venue", (req, res) => {
         })
         return tour;
       })
-      console.log(tourData)
       res.render("users/venue/venue-home.hbs", {
         layout: "venue-layout.hbs",
         venueData, tourData,

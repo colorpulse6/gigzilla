@@ -3,22 +3,20 @@
 <h2>Hello {{musicianData.name}}</h2>
 
 
-
-
 <form method="POST" action="/home/musician">
     <div><label for="name">Tour Name:</label>
         <input type="name" name="name" id="name" required>
     </div>
     
     
-    <a href="/home/musician/{{tourData._id}}"><button>Build Tour</button></a>
+    <a href="/home/musician/{{tourData._id}}"><button>Build New Tour</button></a>
 </form>
 
 
 
 <h1>Active Tours</h1>
-{{#each musicianData.tours}}
+{{#each musician.tours}}
 
-<p>{{this}}</p>
+<a href="/home/musician/{{this._id}}"><p>{{this.name}}</p></a>
 
 {{/each}}

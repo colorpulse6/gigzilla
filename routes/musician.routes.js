@@ -10,6 +10,7 @@ const CityModel = require("../models/city.model");
 //Profile Route
 
 router.get("/home/musician/profile", (req, res) => {
+    
     res.render("users/musician/musician-profile.hbs", {
         layout: "musicianLayout.hbs",
         musicianData: req.session.loggedInUser
@@ -23,6 +24,7 @@ router.get("/home/musician/profile", (req, res) => {
 router.post("/home/musician/profile", (req, res) => {
     let musicianData = req.session.loggedInUser
     const {phoneNumber, genre, bio} = req.body
+
     MusicianModel.findByIdAndUpdate( musicianData._id, {phoneNumber: phoneNumber, genre: genre, bio: bio} )
       .then((result) => {
         MusicianModel.findById(musicianData._id)
@@ -38,10 +40,26 @@ router.post("/home/musician/profile", (req, res) => {
 
 //Home Route
 router.get('/home/musician', (req, res) => {
-   
-    res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser});
+    musicianData = req.session.loggedInUser;
+    
+
+    MusicianModel.findOne({_id: musicianData._id})
+      .populate('tours')
+      //.execPopulate()
+      .then((musician) => {
+          
+        res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser, musician})
+        
+
+      })
+      .catch((err) => {
+        res.send("Something is wrong");
+        console.log(err)
+      });
      
    })
+
+  
 
 //Home Route Post
 router.post('/home/musician', (req, res) => {
@@ -64,6 +82,20 @@ router.post('/home/musician', (req, res) => {
         })
 })
 
+
+//Delete City
+
+router.get('/home/musician/delete/:tourId/:city', (req, res) => {
+
+    const {tourId, city} = req.params
+    TourModel.update({_id: tourId}, {$pull: {cities: {_id:city}}})
+    .then((result) => {
+        
+        res.redirect(`/home/musician/${tourId}`)
+    })
+
+})
+
 //Tour Route
 router.get("/home/musician/:tour", (req, res) => {
     let id = req.params.tour;
@@ -71,13 +103,12 @@ router.get("/home/musician/:tour", (req, res) => {
   
     // console.log(id)
   TourModel.findById(id)
-    .populate('cities.selectedVenue')
+      .populate('cities.selectedVenue')
       .then((tourData) => {
         res.render("users/musician/musician-tour.hbs", {
           layout: "musicianLayout.hbs",
           musicianData,
-          tourData,
-    
+          tourData
         });
       })
       .catch((err) => {
