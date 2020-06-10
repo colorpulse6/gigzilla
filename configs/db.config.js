@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/gigzilla';
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb+srv://michelleytlock:coconuts@cluster0-aszcx.mongodb.net/gigzilla?retryWrites=true&w=majority';
 
 mongoose
   .connect(MONGODB_URI, {

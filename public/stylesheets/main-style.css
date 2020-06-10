@@ -1,3 +1,4 @@
+/* Main Styles */
 html, body {
   height: 100%;
 }
@@ -12,6 +13,7 @@ body {
   flex: 1 0 auto;
 }
 
+/* Navbar Styles */
 .navbar-custom {
   background-color: #121212;
 }
@@ -41,6 +43,7 @@ body {
   font-weight: 500;
 }
 
+/* Buttons */
 .btn-warning {
   background-color: #FF9C00;
   color: white;
@@ -60,8 +63,10 @@ body {
   border-radius: 20px;
   border-color: #FF9C00;
   padding: 2px 26px;
+  margin: 10px 0;
 }
 
+/* Landing Page Styles */
 .landing-musician {
   background-image: url(/images/landing-musician.jpg);
   background-repeat: no-repeat;
@@ -99,7 +104,6 @@ h1 {
   font-weight: 800;
   margin-bottom: 20px;
   text-shadow: 2px 2px 3px black;
-  padding: 0 20px;
 }
 
 h4 {
@@ -126,14 +130,14 @@ h2 {
   font-size: 18px;
   font-weight: 700;
   margin: 20px 0;
-  color: #0082DE;
+  color: #851191;
 }
 
 .features-venue h3 {
   font-size: 18px;
   font-weight: 700;
   margin: 20px 0;
-  color: #FF9C00;
+  color: #0082DE;
 }
 
 .features-list {
@@ -157,6 +161,7 @@ h2 {
   font-size: 18px;
 }
 
+/* Footer Styles */
 footer {
   background-color: #393939;
   padding: 20px 24px;
@@ -203,4 +208,36 @@ footer h5 {
   margin-left: 5px;
 }
 
-.
+/* Sign Up Styles */
+.signup-musician {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-venue {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-musician h1 {
+  color: #851191;
+  text-shadow: none;
+}
+
+.signup-venue h1 {
+  color: #0082DE;
+  text-shadow: none;
+}
+
+.signin {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signin h1 {
+  color: #FF9C00;
+  text-shadow: none;
+}
