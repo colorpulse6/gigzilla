@@ -1,18 +1,45 @@
-<h1>Sign In</h1>
+<div class="signin">
+  <h1>Sign In</h1>
 
-<form method="POST" action="/signin">
+  <form method="POST" action="/signin">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" placeholder="bingo@tophat.com" name="email" required>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="******" required>
+      </div>
+    </div>
+    <div class="form-group">
+    <label for="type">Select Your Profile Type</label>
+    <select class="form-control" id="type" name="type">
+      <option value="musician">Musician</option>
+      <option value="venue">Venue</option>
+    </select>
+  </div>
+    <button type="submit" class="btn btn-primary">Sign In</button>
+  </form>
+
+  {{#if errorMessage}}
+    <div class="error">{{errorMessage}}</div>
+  {{/if}}
+</div>
+
+
+
+{{!-- <form method="POST" action="/signin">
   <label for="email">Email</label>
   <input type="email" name="email" id="email">
   <label for="password">Password</label>
   <input type="password" name="password" id="password">
+
   <label for="type">Please select your profile type:</label>
   <select name="type" id="type">
     <option value="musician">Musician</option>
     <option value="venue">Venue</option>
   </select>
-  <button type="submit">Sign In</button>
-</form>
 
-{{#if errorMessage}}
-<div class="error">{{errorMessage}}</div>
-{{/if}}
+  <button type="submit">Sign In</button>
+</form> --}}
