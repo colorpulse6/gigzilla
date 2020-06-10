@@ -163,8 +163,7 @@ router.post("/home/musician/:tourId", (req, res) => {
           //DISPLAY IF NOT
           res.redirect(`/home/musician/${tourId}`);
         } else {
-
-            
+  
           VenueModel.findOne({ cityName: cityCaseSensitive })
           .then((venue) => {
 
@@ -181,7 +180,6 @@ router.post("/home/musician/:tourId", (req, res) => {
                       }).then(() => {
                       res.redirect(`/home/musician/${tourId}`);
                       });
-                      
               }
               
           })

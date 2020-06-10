@@ -1,3 +1,37 @@
+/* Navbar */
+
+.navbar-custom {
+    background-color: #121212;
+  }
+  
+  .navbar-custom .navbar-brand,
+  .navbar-custom .navbar-text {
+    color: white;
+    font-family: 'Modak', cursive;
+    font-size: 36px;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .navbar-toggler {
+    border: none;
+  } 
+  
+  .navbar-custom .nav-item.active .nav-link,
+  .navbar-custom .nav-item:hover .nav-link {
+      color: #FF9C00;
+  }
+  
+  .navbar-custom .navbar-nav .nav-link {
+    color: #FFFFFF;
+    font-family: 'Poppins', sans-serif;
+    font-size: 26px;
+    font-weight: 500;
+  }
+
+  
+
+  /* Home Page */
 .main-page-div {
     display:flex;
     flex-direction: column;
@@ -96,7 +130,6 @@
 
 .display-cities {
     padding:10px;
-    border:2px solid #851191;
     width:90%;
     border-radius:10px;
     font-size:15px;
@@ -106,6 +139,7 @@
 .each-city {
 margin:10px;
 font-size:10px;
+border:2px solid #851191
 }
 
 .backbtn-div {
