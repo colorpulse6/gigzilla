@@ -137,7 +137,9 @@ router.get("/home/musician/:tour", (req, res) => {
           musicianData,
           tourData
         });
+       
       })
+      
       .catch((err) => {
         res.send("Something is wrong");
         //console.log(err)

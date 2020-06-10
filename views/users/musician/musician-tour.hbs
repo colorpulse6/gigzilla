@@ -2,11 +2,17 @@
 
 <div class = "main-page-div">
 
-    <div class ="tours-header main-header-div">
+  
+
+    <div class ="others-header main-header-div">
      
         <h2>Hello {{musicianData.name}}</h2>
       
     </div>
+
+    <div class="backbtn-div">
+    <a href="/home/musician/"><button class="button back-button">Back to Home</button></a>
+  </div>
 
 
     <div class="add-cities-div">
@@ -20,8 +26,8 @@
       <div class="search-city">
 
         <form method="POST" action="/home/musician/{{tourData._id}}">
-        <input type="text" name="city" id="searchbar" placeholder="Search for a city..">
-        <button type="submit" class="button secondary-button">Add City</button>
+        <input type="text" name="city" id="searchbar" placeholder="Search for a city.." required>
+        <button type="submit" class="button ">Add City</button>
       </form>
 
       </div>
@@ -46,13 +52,20 @@
           <div class="each-city card">
             
             <div class="card-body">
-              <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
-            <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="button secondary-button" name="delete" type="submit">Delete City</button></a>
+              <a href="/home/musician/{{../tourData._id}}/{{this.name}}"><h2>{{this.name}}</h2></a>
+            <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="button" name="delete" type="submit">Delete City</button></a>
 
             {{#if this.contactedByMusician}}
+            <h6>Venues</h6>
               {{#each this.possibleVenues}}
-                <p>Contacted: {{this}}</p>
+              <div class="venues-on-tour-page">
+                <p>Contacted: <br> <a href="/home/musician/{{../../tourData._id}}/{{../this.name}}/{{../../../tourData.selectedVenue._id}}">{{this}}</a></p>
+                
                 <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button class="button secondary-button">Confirm</button></a>
+
+
+              </div>
+                
               {{/each}}
           
             {{/if}}  
@@ -60,10 +73,8 @@
           <p>Confirmed: {{this.selectedVenue.name}}</p>
         </div>
 
-            </div>
-            
+            </div>  
 
-            
           </div>
           
              
@@ -72,10 +83,6 @@
 
 
     </div>
-    
-
-     
-
 
   </div>
 
@@ -83,9 +90,6 @@
       <div class="error">{{errorMessage}}</div>
     {{/if}}
 
-  <div class="backbtn-div">
-    <a href="/home/musician/"><button class="button back-button">Back to Home</button></a>
-    
-</div>
+  
 
 

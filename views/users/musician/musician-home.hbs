@@ -1,4 +1,4 @@
-<div>This is the musician home</div>
+
 
 <div class = "main-page-div">
 
@@ -28,7 +28,7 @@
         {{#each musician.tours}}
 
         <div>
-            <a href="/home/musician/{{this._id}}"><p>{{this.name}}</p></a>
+            <a href="/home/musician/{{this._id}}"><p class="tour-name">{{this.name}}</p></a>
             <a href="/home/musician/delete/{{this._id}}"><button class= "button secondary-button" name="delete" type="submit">Delete Tour</button></a>
 
         </div>

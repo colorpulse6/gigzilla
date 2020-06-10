@@ -29,7 +29,15 @@
     font-weight: 500;
   }
 
+  .others-header {
+    text-align:center;
+    height: 100px;
+ }
 
+ .others-header h2 {
+     padding-top:10px;
+     font-size:50px;
+ }
 
   /* Home Page */
 .main-page-div {
@@ -45,7 +53,7 @@
     color:white;
     font-family: 'Modak', cursive;
     padding:10px;
-    
+    font
     display:flex;
     flex-direction: column;
     align-items:center;
@@ -53,6 +61,11 @@
     box-shadow: 10px 10px 8px #888888;  
     border-radius:5px;
 }
+
+.main-header-div button {
+    font-size: 12px;
+}
+
 
 .main-header-div h2 {
     margin-bottom: 10px;
@@ -68,7 +81,7 @@
     width:150;
     margin:15px 0px;
     margin-top:10px;
-    border:1px solid red;
+    border:1px solid #851191;
     border-radius:10%;
 }
 
@@ -81,16 +94,40 @@
     background-color: #FF9C00;
 }
 
+.active-tours {
+    padding-top:20px;
+    text-align: center;
+}
+
 .active-tours div{
     display:flex;
+    justify-content: space-between;
     margin:20px;
-    background-color:black;
+    background-color:#851191;
     padding:10px;
     border-radius:5px;
+    width:400px;
+    
+    
     
 }
-.active-tours a {
-    color:white;
+
+
+.tour-name {
+  color:white;
+  display: block;
+  width: 180px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin-top:20px;
+  font-size:20px;
+  
+
+}
+
+.active-tours button {
+
 }
 
 .secondary-button {
@@ -101,19 +138,12 @@
 }
 
 .back-button {
-    background-color:#0082DE
+    background-color:#0082DE;
 }
 
 
 /* Tours */
 
-.tours-header {
-   text-align:center;
-   height: 50px;
-}
-.tours-header {
-  padding-bottom:20px;
-}
 
 .add-cities-div {
     margin:20px;
@@ -140,7 +170,22 @@
     margin:10px;
     font-size:10px;
     width: 15rem;
-    float:left
+    float:left;
+    text-align:center;
+}
+
+.venues-on-tour-page {
+    display:flex;
+    border:1px solid black;
+    margin: 5px 0px;
+    padding:5px;
+    justify-content:center;
+    
+}
+
+
+.venues-on-tour-page p {
+   margin-top:10px;
 }
 
 .city-confirmed {
@@ -148,8 +193,10 @@
 }
 
 .backbtn-div {
-    position:relative;
-    margin:20px;
+    margin-left:-800px;
+    margin-top:20px;
+    font-size: 12px;
+    
 }
 
 
@@ -158,5 +205,65 @@
 .search-venue {
     display:flex;
     margin:50px;
+}
+
+.filter-search-1 {
+
+    display:flex;
+    justify-content:center;
+}
+
+.filter-search-1 select {
+
+    height:30px;
+}
+
+.filter-search-2 {
+    display:flex;
+    margin:20px;
+}
+
+
+.filter-search-2 label{
+    margin-left:20px;
+}
+
+.filter-search-2 input {
+    margin-top:5px;
+    margin-left:10px;
+}
+
+.filter-btns{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.venues-in-city {
+    margin-bottom:100px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+/* Venue Info Page */
+
+.venue-info-page-main {
+    margin:20px;
+    
+}
+
+.venue-info {
+    display:flex;
+    margin:50px 0px;
+}
+
+.venue-info img {
+    margin-right: 100px;
+}
+
+.venue-info div {
+    margin-top:50px;
+
 }
 
