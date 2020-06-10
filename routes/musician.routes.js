@@ -87,9 +87,11 @@ router.post('/home/musician', (req, res) => {
 router.get('/home/musician/delete/:tourId/', (req, res) => {
   let user = req.session.loggedInUser
   const { tourId } = req.params
+  
+
+  
   MusicianModel.updateOne({_id: user._id}, {$pull: {tours: tourId}})
-  
-  
+
   .then((result) => {
       console.log(result)
       TourModel.findOneAndDelete({_id: tourId})
@@ -161,15 +163,14 @@ router.post("/home/musician/:tourId", (req, res) => {
           //DISPLAY IF NOT
           res.redirect(`/home/musician/${tourId}`);
         } else {
-
-            
+  
           VenueModel.findOne({ cityName: cityCaseSensitive })
           .then((venue) => {
 
               //TEST IF CITY EXISTS
               if(!venue){
                   res.redirect(`/home/musician/${tourId}`);
-                 console.log('City Not Available')
+                  console.log('City Not Available')
                  
               } else{
 
@@ -179,7 +180,6 @@ router.post("/home/musician/:tourId", (req, res) => {
                       }).then(() => {
                       res.redirect(`/home/musician/${tourId}`);
                       });
-                      
               }
               
           })
