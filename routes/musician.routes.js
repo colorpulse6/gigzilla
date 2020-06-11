@@ -41,20 +41,15 @@ router.post("/home/musician/profile", (req, res) => {
 //Home Route
 router.get('/home/musician', (req, res) => {
     musicianData = req.session.loggedInUser;
-    let genreArray = ['jazz', 'rockmusic', 'classicalmusic', 'funk', 'disco','punkrock', 'motown', 'elvis', 'reggae']
-    let randomElement = genreArray[Math.floor(Math.random() * genreArray.length)];
-    
 
     MusicianModel.findOne({_id: musicianData._id})
       .populate('tours')
       //.execPopulate()
       .then((musician) => {
-        
-        musician.genrePic = Math.random(randomElement)
-        
+
         res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser, musician})
         
-        console.log(musicianData)
+        //console.log(musician)
       })
       .catch((err) => {
         res.send("Something is wrong");
@@ -126,6 +121,10 @@ router.get('/home/musician/delete/:tourId/:city', (req, res) => {
     })
 
 })
+
+//Remove Venues on Confirm
+
+
 
 //Tour Route
 router.get("/home/musician/:tour", (req, res) => {
@@ -294,7 +293,7 @@ router.get("/home/musician/:tourId/:cityId/:venueName/add", (req,res) => {
   VenueModel.find({name: venueName})
     .then((venue)=>{
       
-      TourModel.update({ _id: tourId, 'cities._id': cityId }, { $set: { 'cities.$.selectedVenue': venue[0]._id } } )
+      TourModel.update({ _id: tourId, 'cities._id': cityId }, { $set: { 'cities.$.selectedVenue': venue[0]._id }, 'cities.$.possibleVenues':[]} )
       
         .then((tourData) => {
             console.log(tourData)

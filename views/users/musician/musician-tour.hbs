@@ -58,24 +58,31 @@
 
             {{#if this.contactedByMusician}}
             <h6>Venues</h6>
+
+            <div id="to-hide">
               {{#each this.possibleVenues}}
               <div class="venues-on-tour-page">
+
                 <p>Contacted: <br> <a href="/home/musician/{{../../tourData._id}}/{{../this.name}}/{{../../../tourData.selectedVenue._id}}">{{this}}</a></p>
                 
-                <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button class="button secondary-button">Confirm</button></a>
-
+                <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button  class="button secondary-button confirm-button" >Confirm</button></a>
 
               </div>
                 
               {{/each}}
+              
+            </div>
           
             {{/if}}  
-        <div class="city-confirmed">
-          <p>Confirmed: {{this.selectedVenue.name}}</p>
-        </div>
 
             </div>  
+            
             </div>
+            {{#if this.selectedVenue}}
+            <div class="city-confirmed">
+          <p>Confirmed: {{this.selectedVenue.name}}</p>
+        </div>
+        {{/if}}
 
           </div>
           
@@ -87,6 +94,7 @@
     </div>
 
   </div>
+  
 
   {{#if errorMessage}}
       <div class="error">{{errorMessage}}</div>
