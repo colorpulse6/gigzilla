@@ -300,7 +300,7 @@ label {
 }
 
 .city-cards a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .profile-content {
@@ -343,20 +343,22 @@ label {
 }
 
 /* Venue Info Page */
-/* 
 .venue-info-page-main {
   margin: 20px;
 }
 
-.venue-info {
+.venue {
   display: flex;
-  margin: 50px 0px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-.venue-info img {
-  margin-right: 100px;
+.venue img {
+  width: 300px;
 }
 
-.venue-info div {
-  margin-top: 50px;
-} */
+.venue-info {
+  margin: 20px;
+}

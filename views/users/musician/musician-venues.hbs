@@ -1,58 +1,50 @@
-<div class ="others-header main-header-div">
-      
-          <h2>Hello {{musicianData.name}}</h2>
-        
+<div class="intro">
+  <h1 style="margin-bottom: 20px;">Hey {{musicianData.name}}</h1>
+  <a href="/home/musician/{{tourId}}/{{cityName}}"><button class="btn btn-secondary">Back to City</button></a>
 </div>
 
-<div class = "main-page-div venue-info-page-main">
-
-    
-
-    <div class="backbtn-div">
-      <a href="/home/musician/{{tourId}}/{{cityName}}"><button class="button back-button">Back to Cities</button></a>
+<div class="venue-info-page-main">
+  <h2>{{venueInfo.name}}</h2>
+  <div class="venue">
+    <div class="venue-image">
+      <img src="{{venueInfo.imgUrl}}">
     </div>
-
-    <h1>{{venueInfo.name}}</h1>
-
     <div class="venue-info">
+      <p><b>Phone Number:</b> {{venueInfo.phoneNumber}}</p>
+      <p><b>Type of Venue:</b> {{venueInfo.type}}</p>
+      <p><b>Genre:</b> {{venueInfo.genre}}</p>
+      <p><b>Description:</b> {{venueInfo.description}}</p>
+      {{#if venueInfo.backline}}
+      <p><b>Backline:</b> Yes</p>
+      {{else}}
+      <p><b>Backline:</b> No</p>
+      {{/if}}
 
-        <img src="{{venueInfo.imgUrl}}">
+      {{#if venueInfo.food}}
+      <p><b>Catering:</b> Yes</p>
+      {{else}}
+      <p><b>Catering:</b> No</p>
+      {{/if}}
 
-        <div>
-            <p>Phone Number: {{venueInfo.phoneNumber}}</p>
-            <p>Type of Venue: {{venueInfo.type}}</p>
-            <p>Genre: {{venueInfo.genre}}</p>
-            <p>Description: {{venueInfo.description}}</p>
-
-            {{#if venueInfo.backline}}
-            <p>Backline: Yes</p>
-            {{else}}
-            <p>Backline: No</p>
-            {{/if}}
-
-            {{#if venueInfo.food}}
-            <p>Catering: Yes</p>
-            {{else}}
-            <p>Catering: No</p>
-            {{/if}}
-
-            <p>Capacity: {{venueInfo.capacity}}</p>
-
-        </div>
-
+      <p><b>Capacity:</b> {{venueInfo.capacity}}</p>
     </div>
-    <h3>Contact Form</h3>
+
+  </div>
+  <div class="contact">
+    <h3 style="margin-top: 20px;">Contact Tour</h3>
     <form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
       <div class="form-group">
-        <label for="formGroupExampleInput">Your Email</label>
-        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email" required>
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" value="{{musicianData.email}}" required>
       </div>
       <div class="form-group">
-        <label for="exampleFormControlTextarea1">Message</label>
-        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" cols="100" required></textarea>
+        <label for="message">Message</label>
+        <textarea class="form-control" name="message" id="message" rows="3"
+          placeholder="Hello we would like to play a set at your venue" required></textarea>
       </div>
-      <button class="button"type="submit">Send</button>
+      <div class="button-center">
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </div>
     </form>
-
+  </div>
 </div>
-
