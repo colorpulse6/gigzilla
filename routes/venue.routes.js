@@ -35,9 +35,9 @@ router.get("/home/venue", (req, res) => {
   let venueData = req.session.loggedInUser;
 
   //FIND TOURS THAT WILL BE VISITING VENUE'S CITY
-  TourModel.find({ 'cities.name': venueData.cityName, 'cities.selectedVenue': { $in: null }})
+  TourModel.find({ 'cities.name': venueData.cityName, 'cities.selectedVenue': { $in: null } })
     .then((tourData) => {
-      // console.log(tourData)
+      //console.log(tourData.cities)
       tourData = tourData.map((tour) => {
         tour.cities.forEach((city) => { 
           if (city.name === venueData.cityName && city.contactedByVenue) {
@@ -48,10 +48,10 @@ router.get("/home/venue", (req, res) => {
                     
               city.confirmed = true;
               
-              console.log(city.selectedVenue)
+              //console.log(city)
             }
         })
-        return tour;
+        return tour
       })
       //console.log(tourData)
       res.render("users/venue/venue-home.hbs", {
@@ -59,7 +59,8 @@ router.get("/home/venue", (req, res) => {
         venueData, tourData,
       });
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err)
       res.send("Unable to view venue homepage");
     });
 });

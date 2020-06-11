@@ -41,16 +41,20 @@ router.post("/home/musician/profile", (req, res) => {
 //Home Route
 router.get('/home/musician', (req, res) => {
     musicianData = req.session.loggedInUser;
+    let genreArray = ['jazz', 'rockmusic', 'classicalmusic', 'funk', 'disco','punkrock', 'motown', 'elvis', 'reggae']
+    let randomElement = genreArray[Math.floor(Math.random() * genreArray.length)];
     
 
     MusicianModel.findOne({_id: musicianData._id})
       .populate('tours')
       //.execPopulate()
       .then((musician) => {
-          
+        
+        musician.genrePic = Math.random(randomElement)
+        
         res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser, musician})
         
-
+        console.log(musicianData)
       })
       .catch((err) => {
         res.send("Something is wrong");

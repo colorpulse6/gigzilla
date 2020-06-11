@@ -50,7 +50,8 @@
       {{#if tourData.cities}}
         {{#each tourData.cities}}
           <div class="each-city card">
-            
+            <img class="card-img" src="https://loremflickr.com/g/320/240/{{this.name}}" alt="Card image">
+            <div class="card-img-overlay">
             <div class="card-body">
               <a href="/home/musician/{{../tourData._id}}/{{this.name}}"><h2>{{this.name}}</h2></a>
             <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="button" name="delete" type="submit">Delete City</button></a>
@@ -74,6 +75,7 @@
         </div>
 
             </div>  
+            </div>
 
           </div>
           

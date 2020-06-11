@@ -26,17 +26,41 @@
 
         <h1>Active Tours</h1>
         {{#each musician.tours}}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
 
-        <div>
-            <a href="/home/musician/{{this._id}}"><p class="tour-name">{{this.name}}</p></a>
-            <a href="/home/musician/delete/{{this._id}}"><button class= "button secondary-button" name="delete" type="submit">Delete Tour</button></a>
 
-        </div>
-        
+                        <a href="/home/musician/{{this._id}}"><div class="card">
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    
+                                    <img src="https://loremflickr.com/g/300/180/{{../musician.genrePic}}" alt="Card image cap">
+                                    
+                                </div>
+                                <div class="card-body tour-div">
+                                    <h4 class="tour-name">{{this.name}}</h4>
+                                    <a href="/home/musician/delete/{{this._id}}"><button class= "button" name="delete" type="submit">Delete Tour</button></a>
+                                </div>
+                            </div>
+                            {{#if this.cities}}
+                            <div>
+                                <div class="card-footer">Cities: 
+                                {{#each this.cities}}
+                                <small class="text-muted"> {{this.name}}</small>
+                                {{/each}}
+                                </div>
 
-        {{/each}}
+                            </div>
+                            
+                        </div></a>
+                        {{/if}}
 
-    </div>
+
+                    </div>
+                </div>
+            </div>
+            {{/each}}
 
 
 </div>

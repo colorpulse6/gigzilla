@@ -94,40 +94,54 @@
     background-color: #FF9C00;
 }
 
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+    flex-direction: row;
+  
+}
+
 .active-tours {
     padding-top:20px;
     text-align: center;
-}
-
-.active-tours div{
     display:flex;
-    justify-content: space-between;
-    margin:20px;
-    background-color:#851191;
-    padding:10px;
-    border-radius:5px;
-    width:400px;
-    
-    
+    flex-direction: column;
+    width:90%;
+    margin-bottom:50px;
     
 }
 
+.active-tours h1 {
+    margin:30px;
+}
+
+.tour-div {
+    display: flex;
+    
+}
 
 .tour-name {
-  color:white;
+  color:black;
   display: block;
-  width: 180px;
+  width: 350px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  margin-top:20px;
-  font-size:20px;
-  
+  position:absolute;
+  top:65px;
+  font-size:30px;
+}
 
+.card-footer {
+    
 }
 
 .active-tours button {
-
+    width:200px;
+    height:50px;
+    margin-top:40px;
+    position:absolute;
+    right:10px;
 }
 
 .secondary-button {
@@ -211,11 +225,22 @@
 
     display:flex;
     justify-content:center;
+   
 }
 
-.filter-search-1 select {
+.filter-search-1 input {
+    padding-left:5px;
+}
 
+
+.filter-search-1 select {
+    padding-left:5px;
     height:30px;
+    width:150px;
+}
+
+.capacity-div {
+    margin-left:20px;
 }
 
 .filter-search-2 {
@@ -244,6 +269,14 @@
     display:flex;
     flex-direction:column;
     align-items:center;
+}
+
+.city-cards {
+    width:75%;
+} 
+
+.img-square-wrapper {
+    
 }
 
 /* Venue Info Page */

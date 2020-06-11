@@ -17,9 +17,9 @@
         <div class="filter-search-1">
             <div>
                 <p class="main-page-div">Search Keywords</p>
-                <input name="search" type="text" placeholder="jazz">
+                <input name="search" type="text" placeholder="ex. jazz">
             </div>
-            <div>
+            <div class="capacity-div">
                 <p class="main-page-div">Select Capacity:</p>
                 <label for="capacity"></label>
                 <select name="capacity" id="capacity">
@@ -52,16 +52,36 @@
 
     </div>
     
+    <div class="city-cards">
+    {{#each venues}}
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12 mt-3">
 
-    <div class="venues-in-city">
-        <h1>Venues in {{cityName}}</h1>
-        {{#each venues}}
-            <a href="/home/musician/{{../tourId}}/{{cityName}}/{{this._id}}"><p>{{this.name}}</p></a>
-        {{/each }}
-
+                        <a href="/home/musician/{{../tourId}}/{{cityName}}/{{this._id}}"><div class="card">
+                            <div class="card-horizontal">
+                                <div class="img-square-wrapper">
+                                    <img class="" src="https://loremflickr.com/g/320/240/musicVenue" alt="Card image cap">
+                                </div>
+                                <div class="card-body tour-div">
+                                    <h4 class="tour-name">{{this.name}}</h4>
+                                    <p>{{this.description}}</p>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="card-footer"> 
+                                <small class="text-muted"> {{this.genre}}</small>
+                                </div>
+                            </div>
+                            
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
     </div>
-    
 
 </div>
+
 
 
