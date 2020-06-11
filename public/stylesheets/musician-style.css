@@ -151,20 +151,9 @@ footer h5 {
   display: inline;
 }
 
-<<<<<<< HEAD
-.venues-on-tour-page {
-    display:flex;
-    border:1px solid black;
-    margin: 5px 0px;
-    padding:5px;
-    justify-content:center;
-    
-    
-=======
 /* Modal */
 .modal-content {
   font-family: "Poppins", sans-serif;
->>>>>>> origin/master
 }
 
 .modal-title {

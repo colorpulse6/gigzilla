@@ -53,7 +53,7 @@ router.get("/home/venue", (req, res) => {
   //FIND TOURS THAT WILL BE VISITING VENUE'S CITY
   TourModel.find({
     "cities.name": venueData.cityName,
-    "cities.selectedVenue": { $in: null },
+    //"cities.selectedVenue": { $in: null },
   })
     .then((tourData) => {
       //console.log(tourData.cities)

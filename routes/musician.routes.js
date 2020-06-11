@@ -301,11 +301,7 @@ router.get("/home/musician/:tourId/:cityId/:venueName/add", (req,res) => {
   VenueModel.find({name: venueName})
     .then((venue)=>{
       
-<<<<<<< HEAD
-      TourModel.update({ _id: tourId, 'cities._id': cityId }, { $set: { 'cities.$.selectedVenue': venue[0]._id }, 'cities.$.possibleVenues':[]} )
-=======
       TourModel.update({ _id: tourId, 'cities._id': cityId }, { $set: { 'cities.$.selectedVenue': venue[0]._id, 'cities.$.possibleVenues': [] } } )
->>>>>>> origin/master
       
         .then((tourData) => {
             console.log(tourData)
