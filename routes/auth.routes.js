@@ -243,7 +243,7 @@ router.post("/signin", (req, res) => {
       //throw an error if the user does not exists
       .catch(() => {
         res.status(500).render("auth/signin.hbs", {
-          errorMessage: "Something went wrong", layout: "main-layout"
+          errorMessage: "User does not exist", layout: "main-layout"
         });
         return;
       });
@@ -281,7 +281,7 @@ router.post("/signin", (req, res) => {
       //throw an error if the user does not exists
       .catch(() => {
         res.status(500).render("auth/signin.hbs", {
-          errorMessage: "Something went wrong", layout: "main-layout"
+          errorMessage: "User does not exist", layout: "main-layout"
         });
         return;
       });
