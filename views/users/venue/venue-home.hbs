@@ -8,21 +8,23 @@
         {{#each tourData}}
         <a href="/home/venue/{{this._id}}">
             <div class="card" style="width: 18rem;">
-                <img src="{{this.imgUrl}}" class="card-img-top">
+                <img src="https://loremflickr.com/g/320/240/{{this.name}}" class="card-img-top">
                 <div class="card-body">
                     <h5 class="card-title">{{this.name}}</h5>
                     {{#each this.cities}}
-                    {{#if this.isSameCity}}
-                    <div class="contacted">
-                        <p class="card-text">Contacted</p>
-                        <a href="/home/venue/{{../this._id}}/add"><button class="btn btn-secondary">Confirm</button></a>
-                    </div>
+                        {{#if this.isSameCity}}
+                        <div class="contacted">
+                            <p class="card-text">Contacted</p>
+                            <a href="/home/venue/{{../this._id}}/add-confirmed"><button class="btn btn-secondary">Confirm</button></a>
+                        </div>
 
-                    {{/if}}
+                        
+                        {{/if}}
 
-                    {{#if this.confirmed }}
-                    <p class="card-text">Confirmed</p>
-                    {{/if}}
+                        {{#if this.confirmed }}
+                            <p class="card-text">Confirmed</p>
+                        {{/if}}
+                        
                     {{/each}}
                 </div>
             </div>

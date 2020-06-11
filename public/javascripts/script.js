@@ -5,9 +5,6 @@ document.addEventListener('DOMContentLoaded', () => {
 }, false);
 
 
-document.getElementById('test-click').addEventListener('click', function(){
-  document.querySelector('.display-cities').classList.add('hide')
-  
-})
+
   
 

@@ -65,9 +65,13 @@ router.get("/home/venue", (req, res) => {
 
           if (city.selectedVenue) {
             city.confirmed = true;
-
+            city.isSameCity = null;
             console.log(city.selectedVenue);
           }
+
+          // if (city.confirmed = true){
+          //   city.uncontacted = true;
+          // }
         });
         return tour;
       });
@@ -86,17 +90,19 @@ router.get("/home/venue", (req, res) => {
 
 //ADD VENUE TO TOUR MODEL
 
-router.get("/home/venue/:tour/add", (req, res) => {
+router.get("/home/venue/:tour/add-confirmed", (req, res) => {
   let venueData = req.session.loggedInUser;
   let tourId = req.params.tour;
-  console.log(venueData.cityName);
+  //console.log(venueData.cityName);
 
   TourModel.update(
     { _id: tourId, "cities.name": venueData.cityName },
-    { $set: { "cities.$.selectedVenue": venueData._id } }
+    { $set: { "cities.$.selectedVenue": venueData._id} }
   )
     .then((tourData) => {
       res.redirect("/home/venue");
+      //console.log(tourData.cities.selectedVenue)
+      
     })
 
     .catch((err) => {

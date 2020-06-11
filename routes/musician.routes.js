@@ -138,9 +138,10 @@ router.get("/home/musician/:tour", (req, res) => {
         res.render("users/musician/musician-tour.hbs", {
           layout: "musicianLayout.hbs",
           musicianData,
-          tourData
+          tourData,
+          
         });
-       
+       console.log(tourData)
       })
       
       .catch((err) => {
@@ -240,7 +241,7 @@ router.get("/home/musician/:tourId/:cityName", (req, res) => {
     VenueModel.find({cityName, $or: [{name: {$regex: search,  $options: "i" }}, {genre:{$regex: search, $options: "i"}}, {type:{$regex: search, $options: "i"}}, {description:{$regex: search, $options: "i"}}], backline, food, capacity: {$lte: capacity} })
     .then((venues) => {
       
-      console.log(venues)
+      //console.log(venues)
       res.render("users/musician/musician-cities.hbs", {
         layout: "musicianLayout.hbs",
         musicianData: req.session.loggedInUser, tourId, cityName, venues 
@@ -263,8 +264,9 @@ router.get("/home/musician/:tourId/:cityName/:venueId", (req, res) => {
             res.render("users/musician/musician-venues.hbs", {
             layout: "musicianLayout.hbs",
             musicianData: req.session.loggedInUser, tourId, cityName, 
-            venueInfo
+            venueInfo, venueId
     });
+    
   });
 });
 
@@ -274,12 +276,18 @@ router.post("/home/musician/:tourId/:cityName/:venueId", (req, res) => {
     const { tourId, cityName, venueId } = req.params;
     VenueModel.findById(venueId)
     .then((venue)=>{
+
+      console.log(venue)
+     
       TourModel.update({ _id: tourId, 'cities.name': cityName }, { $set: { 'cities.$.contactedByMusician': true }, $push: {'cities.$.possibleVenues': [venue.name]}}  )
         .then((tourData) => {
+          
               // console.log(tourData.cities[1].selectedVenue)
+  
               res.redirect(`/home/musician/${tourId}`)
-              console.log(venue, tourData, venue.name)
-                })      
+              //console.log(venue, tourData, venue.name)
+                })
+                      
         .catch((err) => {
             console.log(err)
         })
