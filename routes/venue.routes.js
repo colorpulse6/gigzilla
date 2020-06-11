@@ -66,7 +66,7 @@ router.get("/home/venue", (req, res) => {
           if (city.selectedVenue) {
             city.confirmed = true;
             city.isSameCity = null;
-            console.log(city.selectedVenue);
+            //console.log(city)
           }
 
           // if (city.confirmed = true){
@@ -83,7 +83,7 @@ router.get("/home/venue", (req, res) => {
       });
     })
     .catch((err) => {
-      console.log(err)
+      console.log(err);
       res.send("Unable to view venue homepage");
     });
 });

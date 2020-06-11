@@ -1,198 +1,157 @@
-/* Hide Elements */
-.hide {
-    display:none
+/* Main Styles */
+html,
+body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#content-wrap {
+  flex: 1 0 auto;
+}
+
+h2 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #851191;
+  text-align: center;
+  margin-top: 20px;
+}
+
+h3 {
+  font-size: 35px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #121212;
+  text-align: center;
 }
 
 /* Navbar */
-
 .navbar-custom {
-    background-color: #851191;
-  }
-  
-  .navbar-custom .navbar-brand,
-  .navbar-custom .navbar-text {
-    color: white;
-    font-family: 'Modak', cursive;
-    font-size: 36px;
-    margin: 0;
-    padding: 0;
-  }
-  
-  .navbar-toggler {
-    border: none;
-  } 
-  
-  .navbar-custom .nav-item.active .nav-link,
-  .navbar-custom .nav-item:hover .nav-link {
-      color: #FF9C00;
-  }
-  
-  .navbar-custom .navbar-nav .nav-link {
-    color: #FFFFFF;
-    font-family: 'Poppins', sans-serif;
-    font-size: 26px;
-    font-weight: 500;
-  }
-
-  .others-header {
-    text-align:center;
-    height: 100px;
- }
-
- .others-header h2 {
-     padding-top:10px;
-     font-size:50px;
- }
-
-  /* Home Page */
-.main-page-div {
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    font-family: 'Poppins', sans-serif;
+  background-color: #851191;
 }
 
-
-.main-header-div {
-    background-color:black;
-    color:white;
-    font-family: 'Modak', cursive;
-    padding:10px;
-    font
-    display:flex;
-    flex-direction: column;
-    align-items:center;
-    width:100%;
-    box-shadow: 10px 10px 8px #888888;  
-    border-radius:5px;
+.navbar-custom .navbar-brand,
+.navbar-custom .navbar-text {
+  color: white;
+  font-family: "Modak", cursive;
+  font-size: 36px;
+  margin: 0;
+  padding: 0;
 }
 
-.main-header-div button {
-    font-size: 12px;
+.navbar-toggler {
+  border: none;
 }
 
-
-.main-header-div h2 {
-    margin-bottom: 10px;
+.navbar-custom .nav-item.active .nav-link,
+.navbar-custom .nav-item:hover .nav-link {
+  color: #ff9c00;
 }
 
-.form-div {
-    text-align:center;
-    font-family: 'Poppins', sans-serif;
-    
+.navbar-custom .navbar-nav .nav-link {
+  color: #ffffff;
+  font-family: "Poppins", sans-serif;
+  font-size: 22px;
+  font-weight: 400;
+  margin-right: 20px;
+  padding: 8px 0;
 }
 
-.main-header-div input {
-    width:150;
-    margin:15px 0px;
-    margin-top:10px;
-    border:1px solid #851191;
-    border-radius:10%;
+/* Footer Styles */
+footer {
+  background-color: #393939;
+  padding: 20px 24px;
+  color: white;
+  width: 100%;
+  height: 180px;
+  flex-shrink: 0;
 }
 
-.button {
-    border-radius:25px;
-    border:none;
-    height:30px;
-    width:120px;
-    margin-bottom: 25px;
-    background-color: #FF9C00;
+footer h5 {
+  font-family: "Modak", cursive;
+  font-size: 36px;
 }
 
-.card-horizontal {
-    display: flex;
-    flex: 1 1 auto;
-    flex-direction: row;
-  
+.footer-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-.active-tours {
-    padding-top:20px;
-    text-align: center;
-    display:flex;
-    flex-direction: column;
-    width:90%;
-    margin-bottom:50px;
-    
+.footer-links {
+  margin-top: 5px;
 }
 
-.active-tours h1 {
-    margin:30px;
+.footer-links p {
+  font-family: "Poppins", sans-serif;
+  margin: 5px;
 }
 
-.tour-div {
-    display: flex;
-    
+.footer-social {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin-bottom: 3px;
+  align-items: flex-end;
 }
 
-.tour-name {
-  color:black;
-  display: block;
-  width: 350px;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  position:absolute;
-  top:65px;
-  font-size:30px;
+.footer-social p {
+  margin-bottom: 10px;
 }
 
-.card-footer {
-    
+.footer-social img {
+  width: 25px;
+  height: 25px;
+  margin-left: 5px;
 }
 
-.active-tours button {
-    width:200px;
-    height:50px;
-    margin-top:40px;
-    position:absolute;
-    right:10px;
+/* Intro */
+.intro {
+  background-color: #121212;
+  padding: 20px;
+  text-align: center;
 }
 
-.secondary-button {
-    width:70px;
-    height:20px;
-    margin:20px;
-    font-size: 10px;
+.intro h1 {
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 0;
+  line-height: 30px;
 }
 
-.back-button {
-    background-color:#0082DE;
+/* Buttons */
+.btn-primary {
+  background-color: #ff9c00;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: 500;
+  border-radius: 20px;
+  border-color: #ff9c00;
+  padding: 2px 26px;
+  margin: 10px 0;
 }
 
-
-/* Tours */
-
-
-.add-cities-div {
-    margin:20px;
+.btn-secondary {
+  background-color: #ff9c00;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+  border-radius: 20px;
+  border-color: #ff9c00;
+  padding: 2px 20px;
+  display: inline;
 }
 
-.search-city form {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.search-city form button {
-    margin-top:10px;
-}
-
-.display-cities {
-    padding:10px;
-    width:90%;
-    border-radius:10px;
-    font-size:15px;
-}
-
-.each-city {
-    margin:10px;
-    font-size:10px;
-    width: 15rem;
-    float:left;
-    text-align:center;
-}
-
+<<<<<<< HEAD
 .venues-on-tour-page {
     display:flex;
     border:1px solid black;
@@ -201,108 +160,210 @@
     justify-content:center;
     
     
+=======
+/* Modal */
+.modal-content {
+  font-family: "Poppins", sans-serif;
+>>>>>>> origin/master
 }
 
-
-.venues-on-tour-page p {
-   margin-top:10px;
+.modal-title {
+  font-size: 20px;
+  font-weight: 500;
 }
 
-.city-confirmed {
-    bottom:10px;
+.modal-body label {
+  font-size: 16px;
+  font-weight: 500;
 }
 
-.backbtn-div {
-    margin-left:-800px;
-    margin-top:20px;
-    font-size: 12px;
-    
+.modal-body input {
+  font-size: 16px;
+  font-weight: 300;
 }
 
+/* Home */
+.active-tours {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  margin: 30px 0;
+}
+
+.tours a {
+  text-decoration: none;
+}
+
+.tours {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+/* Cards */
+.card {
+  margin: 10px;
+}
+
+.card-title {
+  color: #121212;
+  font-family: "Poppins", sans-serif;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.card-text {
+  color: #121212;
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.card-body {
+  height: 350px;
+}
+
+.card-body a {
+  text-decoration: none;
+}
+
+.card-footer {
+  background-color: #851191;
+}
+
+/* Tours */
+.add-cities-div {
+  margin: 20px;
+}
+
+.search-city {
+  text-align: center;
+}
+
+.display-cities {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.contacted {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.display-cities p {
+  color: #121212;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  font-size: 16px;
+}
+
+h6 {
+  color: #851191;
+  font-family: "Poppins", sans-serif;
+  font-size: 18px;
+  font-weight: 500;
+}
 
 /* CITIES */
-
 .search-venue {
-    display:flex;
-    margin:50px;
+  padding: 20px;
 }
 
-.filter-search-1 {
-
-    display:flex;
-    justify-content:center;
-   
+.filter-btns {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
-.filter-search-1 input {
-    padding-left:5px;
+form p,
+input,
+textarea {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 300;
 }
 
-
-.filter-search-1 select {
-    padding-left:5px;
-    height:30px;
-    width:150px;
-}
-
-.capacity-div {
-    margin-left:20px;
-}
-
-.filter-search-2 {
-    display:flex;
-    margin:20px;
-}
-
-
-.filter-search-2 label{
-    margin-left:20px;
-}
-
-.filter-search-2 input {
-    margin-top:5px;
-    margin-left:10px;
-}
-
-.filter-btns{
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.venues-in-city {
-    margin-bottom:100px;
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+form span,
+label {
+  font-family: "Poppins", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .city-cards {
-    width:75%;
-} 
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
 
-.img-square-wrapper {
-    
+.profile-content {
+  padding: 20px 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.profile {
+  width: 600px;
+  margin-bottom: 20px;
+}
+
+.button-center {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.form-head {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-content: center;
+  margin: 20px 0;
+}
+
+.form-head img {
+  width: 180px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.form-main-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Venue Info Page */
-
+/* 
 .venue-info-page-main {
-    margin:20px;
-    
+  margin: 20px;
 }
 
 .venue-info {
-    display:flex;
-    margin:50px 0px;
+  display: flex;
+  margin: 50px 0px;
 }
 
 .venue-info img {
-    margin-right: 100px;
+  margin-right: 100px;
 }
 
 .venue-info div {
-    margin-top:50px;
-
-}
-
+  margin-top: 50px;
+} */
