@@ -26,6 +26,8 @@ const app = express();
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 
+const MONGODB_URI = process.env.MONGODB_URI || 'mongodb://localhost/gigzilla';
+
 app.use(session({
     secret: 'my-secret-weapon',
     saveUninitialized: false,
@@ -34,7 +36,7 @@ app.use(session({
       maxAge: 60*60*24*1000 //60 sec * 60 min * 24hrs = 1 day (in milliseconds)
     },
     store: new MongoStore({
-        url: process.env.MONGODB_URI,
+        url: MONGODB_URI,
         // mongooseConnection: mongoose.connection
         //time to live (in seconds)
         ttl: 60*60*24,

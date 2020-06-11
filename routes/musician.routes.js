@@ -41,16 +41,20 @@ router.post("/home/musician/profile", (req, res) => {
 //Home Route
 router.get('/home/musician', (req, res) => {
     musicianData = req.session.loggedInUser;
+    let genreArray = ['jazz', 'rockmusic', 'classicalmusic', 'funk', 'disco','punkrock', 'motown', 'elvis', 'reggae']
+    let randomElement = genreArray[Math.floor(Math.random() * genreArray.length)];
     
 
     MusicianModel.findOne({_id: musicianData._id})
       .populate('tours')
       //.execPopulate()
       .then((musician) => {
-          
+        
+        musician.genrePic = Math.random(randomElement)
+        
         res.render('users/musician/musician-home.hbs', {layout: 'musicianLayout.hbs', musicianData: req.session.loggedInUser, musician})
         
-
+        console.log(musicianData)
       })
       .catch((err) => {
         res.send("Something is wrong");
@@ -87,9 +91,11 @@ router.post('/home/musician', (req, res) => {
 router.get('/home/musician/delete/:tourId/', (req, res) => {
   let user = req.session.loggedInUser
   const { tourId } = req.params
+  
+
+  
   MusicianModel.updateOne({_id: user._id}, {$pull: {tours: tourId}})
-  
-  
+
   .then((result) => {
       console.log(result)
       TourModel.findOneAndDelete({_id: tourId})
@@ -135,7 +141,9 @@ router.get("/home/musician/:tour", (req, res) => {
           musicianData,
           tourData
         });
+       
       })
+      
       .catch((err) => {
         res.send("Something is wrong");
         //console.log(err)
@@ -161,15 +169,14 @@ router.post("/home/musician/:tourId", (req, res) => {
           //DISPLAY IF NOT
           res.redirect(`/home/musician/${tourId}`);
         } else {
-
-            
+  
           VenueModel.findOne({ cityName: cityCaseSensitive })
           .then((venue) => {
 
               //TEST IF CITY EXISTS
               if(!venue){
                   res.redirect(`/home/musician/${tourId}`);
-                 console.log('City Not Available')
+                  console.log('City Not Available')
                  
               } else{
 
@@ -179,7 +186,6 @@ router.post("/home/musician/:tourId", (req, res) => {
                       }).then(() => {
                       res.redirect(`/home/musician/${tourId}`);
                       });
-                      
               }
               
           })
@@ -288,7 +294,7 @@ router.get("/home/musician/:tourId/:cityId/:venueName/add", (req,res) => {
   VenueModel.find({name: venueName})
     .then((venue)=>{
       
-      TourModel.update({ _id: tourId, 'cities._id': cityId }, { $set: { 'cities.$.selectedVenue': venue[0]._id } } )
+      TourModel.update({ _id: tourId, 'cities._id': cityId }, { $set: { 'cities.$.selectedVenue': venue[0]._id, 'cities.$.possibleVenues': [] } } )
       
         .then((tourData) => {
             console.log(tourData)

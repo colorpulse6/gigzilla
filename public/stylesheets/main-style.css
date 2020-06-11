@@ -1,3 +1,4 @@
+/* Main Styles */
 html, body {
   height: 100%;
 }
@@ -5,13 +6,19 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 }
 
 #content-wrap {
   flex: 1 0 auto;
 }
 
+/* form button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: 0.3s ease background;
+} */
+
+/* Navbar Styles */
 .navbar-custom {
   background-color: #121212;
 }
@@ -27,7 +34,7 @@ body {
 
 .navbar-toggler {
   border: none;
-} 
+}
 
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
@@ -37,10 +44,13 @@ body {
 .navbar-custom .navbar-nav .nav-link {
   color: #FFFFFF;
   font-family: 'Poppins', sans-serif;
-  font-size: 26px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 400;
+  margin-right: 20px;
+  padding: 8px 0;
 }
 
+/* Buttons */
 .btn-warning {
   background-color: #FF9C00;
   color: white;
@@ -48,7 +58,8 @@ body {
   font-size: 20px;
   font-weight: 500;
   border-radius: 20px;
-  padding: 2px 20px;
+  padding: 0 20px;
+  margin: 10px 15px 10px 0;
 }
 
 .btn-primary {
@@ -60,10 +71,12 @@ body {
   border-radius: 20px;
   border-color: #FF9C00;
   padding: 2px 26px;
+  margin: 10px 0;
 }
 
+/* Landing Page Styles */
 .landing-musician {
-  background-image: url(/images/landing-musician.jpg);
+  background-image: url(/images/landing-musician.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -77,7 +90,7 @@ body {
 }
 
 .landing-venue {
-  background-image: url(/images/landing-venue.jpg);
+  background-image: url(/images/landing-venue.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -99,7 +112,6 @@ h1 {
   font-weight: 800;
   margin-bottom: 20px;
   text-shadow: 2px 2px 3px black;
-  padding: 0 20px;
 }
 
 h4 {
@@ -126,14 +138,14 @@ h2 {
   font-size: 18px;
   font-weight: 700;
   margin: 20px 0;
-  color: #0082DE;
+  color: #851191;
 }
 
 .features-venue h3 {
   font-size: 18px;
   font-weight: 700;
   margin: 20px 0;
-  color: #FF9C00;
+  color: #0082DE;
 }
 
 .features-list {
@@ -157,6 +169,7 @@ h2 {
   font-size: 18px;
 }
 
+/* Footer Styles */
 footer {
   background-color: #393939;
   padding: 20px 24px;
@@ -201,4 +214,54 @@ footer h5 {
   width: 25px;
   height: 25px;
   margin-left: 5px;
+}
+
+/* Sign Up Styles */
+.signup-musician {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-venue {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-musician h1 {
+  color: #851191;
+  text-shadow: none;
+}
+
+.signup-venue h1 {
+  color: #0082DE;
+  text-shadow: none;
+}
+
+.signin {
+  margin: 40px 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signin h1 {
+  color: #FF9C00;
+  text-shadow: none;
+}
+
+form p, input, textarea {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+form label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+form small {
+  font-family: 'Poppins', sans-serif;
 }

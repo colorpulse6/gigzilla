@@ -1,39 +1,63 @@
-<div>
-
-    <form method="GET" action="/home/musician/{{tourId}}/{{cityName}}">
-        <input name="search" type="text">
-       
-
-        <label for="capacity">Select Capacity:</label>
-        <select name="capacity" id="capacity">
-        <option value="5000">---</option>   
-        <option value="500"> Up to 500</option>
-        <option value="1500"> 500 to 1500</option>
-        <option value="2000"> 1500 to 2000</option>
-        <option value="5000"> over 2000</option>
-        </select>
-
-
-        <label for="backline">Backline Provided</label><br>
-        <input type="checkbox" id="backline" name="backline" value="true">
-
-        <label for="food">Catering Provided</label><br>
-        <input type="checkbox" id="food" name="food" value="true">
-    
-        <button type="submit">Filter</button>
-        
-    </form>
-
-    <a href="/home/musician/{{tourId}}/{{cityName}}"><button>Show all</button>
-</a>
-
-
-    <h1>Venues in {{cityName}}</h1>
-    {{#each venues}}
-        <a href="/home/musician/{{../tourId}}/{{cityName}}/{{this._id}}"><p>{{this.name}}</p></a>
-    {{/each }}
-
-    <a href="/home/musician/{{../tourId}}">Back to Tours</a>
+<div class="intro">
+    <h1 style="margin-bottom: 20px;">Hey {{musicianData.name}}</h1>
+    <a href="/home/musician/{{./tourId}}"><button class="btn btn-secondary">Back to Tour</button></a>
 </div>
 
+<div>
+    <div class="search-venue">
+        <form method="GET" action="/home/musician/{{tourId}}/{{cityName}}">
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="search">Search Keywords</label>
+                    <input type="text" class="form-control" id="search" name="search" placeholder="ex. jazz">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="capacity">Capacity</label>
+                    <select class="form-control" id="capacity" name="capacity">
+                        <option value="5000">---</option>
+                        <option value="500"> Up to 500</option>
+                        <option value="1500"> 500 to 1500</option>
+                        <option value="3000"> 1500 to 3000</option>
+                        <option value="5000"> over 3000</option>
+                    </select>
+                </div>
+            </div>
 
+            <div class="form-checkboxes">
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="true" id="backline" name="backline">
+                    <label class="form-check-label" for="backline">
+                        Backline Provided
+                    </label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="checkbox" value="true" id="food" name="food">
+                    <label class="form-check-label" for="food">
+                        Catering Provided
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-btns">
+                <button style="margin-top: 15px; margin-right: 15px;" type="submit" class="btn btn-secondary">Filter</button>
+                <a href="/home/musician/{{tourId}}/{{cityName}}"><button style="margin-top: 15px;" class="btn btn-secondary">Show all</button></a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="city-cards">
+    {{#each venues}}
+    <a href="/home/musician/{{../tourId}}/{{cityName}}/{{this._id}}">
+        <div class="card" style="width: 18rem;">
+            <img src="https://loremflickr.com/g/500/500/musicVenue" class="card-img-top">
+            <div class="card-body">
+                <h5 class="card-title">{{this.name}}</h5>
+                <p class="text-muted"> {{this.genre}}</p>
+                <p>{{this.description}}</p>
+            </div>
+        </div>
+    </a>
+    {{/each}}
+</div>

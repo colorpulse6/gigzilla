@@ -1,34 +1,48 @@
-<div>Musician Profile Page</div>
+<div class="intro">
+  <h1>{{musicianData.name}} Profile</h1>
+</div>
 
-<h1>{{musicianData.name}} Profile</h1>
+<div class="profile-content">
+  <div class="profile">
+    <form method="POST" action="/home/musician/profile">
+      <div class="form-head">
+        <div>
+          <img src="https://loremflickr.com/g/500/500/dog/all">
+        </div>
+        <div class="form-main-info">
+          <p><span>Name: </span>{{musicianData.name}}</p>
+          <p><span>Email: </span>{{musicianData.email}}</p>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="#">Image URL</label>
+        <input type="text" class="form-control" id="#" name="#"
+          placeholder="https://loremflickr.com/g/500/500/city,restaurant, club, bar/all">
+      </div>
 
-<form method="POST" action="/home/musician/profile">
-
-
-    <p>Name: {{musicianData.name}}</p>
-    <p>Email: {{musicianData.email}}</p>
-    
-   
-    
-    <label for="phoneNumber">Enter your phone number:</label>
-    <input type="tel" id="phoneNumber" name="phoneNumber" value="{{musicianData.phoneNumber}}">
-    
-
-    
-    <label for="genre">Enter your genre:</label>
-    <input type="text" id="genre" name="genre" value="{{musicianData.genre}}">
-
-
-    <label for="bio">Please give a brief bio:</label>
-    <input type="text-area" id="bio" name="bio" rows="4" cols="50" value="{{musicianData.bio}}">
-    
-
-    <button type="submit" >Save Changes</button>
-</form>
-
-
-
-{{#if errorMessage}}
+      <div class="form-row">
+        <div class="form-group col-md-6">
+          <label for="phoneNumber">Phone Number</label>
+          <input type="tel" class="form-control" id="phoneNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}" name="phoneNumber"
+            placeholder="123-456-7890" value="{{musicianData.phoneNumber}}">
+        </div>
+        <div class="form-group col-md-6">
+          <label for="genre">Genre</label>
+          <input type="text" class="form-control" id="genre" name="genre" placeholder="indie folk"
+            value="{{musicianData.genre}}">
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" name="bio" id="bio" rows="3" placeholder="A little bit about yourself..."
+          value="{{musicianData.bio}}"></textarea>
+      </div>
+      <div class="button-center">
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+      </div>
+    </form>
+  </div>
+  {{#if errorMessage}}
   <div class="error">{{errorMessage}}</div>
-{{/if}}  
-
+  {{/if}}
+</div>

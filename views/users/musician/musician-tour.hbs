@@ -1,46 +1,102 @@
-<div>Musician Tour Page</div>
+<div class="intro">
+  <h1 style="margin-bottom: 20px;">Hey {{musicianData.name}}</h1>
+  <a href="/home/musician/"><button class="btn btn-secondary">Show All Tours</button></a>
+</div>
 
-Hello {{musicianData.name}}
-Your tour is {{tourData.name}}
+<div>
+  <div class="add-cities-div">
+    <h2>{{tourData.name}}</h2>
+    <div class="search-city">
+      <form method="POST" action="/home/musician/{{tourData._id}}">
+        <div class="form-group">
+          <input type="text" class="form-control" id="searchbar" placeholder="Search For A City" name="city" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Add City</button>
+      </form>
+    </div>
+  </div>
 
-<form method="POST" action="/home/musician/{{tourData._id}}">
-
-{{#if tourData.cities.contactedByVenue}}
-<a href="/home/musician/{{this._id}}"><button>Confirm</button></a>
-{{/if}}
-
-<input type="text" name="city" id="searchbar" placeholder="Search for a city..">
-<button type="submit">Add City</button>
-
-</form>
-
-
-
-{{#if tourData.cities}}
+  <div class="display-cities">
+    {{#if tourData.cities}}
     {{#each tourData.cities}}
-      <a href="/home/musician/{{../tourData._id}}/{{this.name}}">{{this.name}}</a>
-      <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button name="delete" type="submit">Delete City</button></a>
 
-    {{#if this.contactedByMusician}}
-      {{#each this.possibleVenues}}
-        <p>Contacted: {{this}}</p>
-        <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button>Confirm</button></a>
+    <div class="card" style="width: 18rem;">
+      <img src="https://loremflickr.com/g/500/500/{{this.name}}" class="card-img-top">
+      <div class="card-body">
+        <a href="/home/musician/{{../tourData._id}}/{{this.name}}">
+          <h5 class="card-title">{{this.name}}</h5>
+        </a>
 
-      {{/each}}
-      
-    {{/if}}
-    
-    
+        {{#if this.contactedByMusician}}
+        <h6>Venues</h6>
+        {{#if this.possibleVenues}}
+        <div>
+          <p style="margin-bottom: 5px;"><b>Contacted:</b></p>
+          {{#each this.possibleVenues}}
+          <div class="contacted">
+              <p>{{this}}</p>
+            <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button
+                class="btn btn-secondary confirm-button">Confirm</button></a>
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
+        {{/if}}
 
-    
-    <p>Confirmed: {{this.selectedVenue.name}}</p>
-    
+        {{#if this.selectedVenue}}
+        <div>
+          <p style="margin-bottom: 7px;"><b>Confirmed:</b></p>
+          <a href="/home/musician/{{../tourData._id}}/{{this.name}}/{{this.selectedVenue._id}}"><p>{{this.selectedVenue.name}}</p></a>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="card-footer">
+        <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="btn btn-secondary" name="delete"
+            type="submit">Delete City</button></a>
+      </div>
+    </div>
     {{/each}}
-{{/if}}
+    {{/if}}
+  </div>
 
-{{#if errorMessage}}
+  {{#if errorMessage}}
   <div class="error">{{errorMessage}}</div>
-{{/if}} 
+  {{/if}}
+</div>
 
-<a href="/home/musician/">Back to Home</a>
 
+{{!-- <div class="each-city card">
+      <div class="card-body">
+        <a href="/home/musician/{{../tourData._id}}/{{this.name}}"></a>
+        <h2>{{this.name}}</h2>
+        </a>
+        <a href="/home/musician/delete/{{../tourData._id}}/{{this._id}}"><button class="button" name="delete"
+            type="submit">Delete City</button></a>
+        {{#if this.contactedByMusician}}
+        <h6>Venues</h6>
+        <div id="to-hide">
+          {{#each this.possibleVenues}}
+          <div class="venues-on-tour-page">
+            <p>Contacted: <br> <a
+                href="/home/musician/{{../../tourData._id}}/{{../this.name}}/{{../../../tourData.selectedVenue._id}}">{{this}}</a>
+            </p>
+
+            <a href="/home/musician/{{../../tourData._id}}/{{../this._id}}/{{this}}/add"><button
+                class="button secondary-button confirm-button">Confirm</button></a>
+          </div>
+
+          {{/each}}
+
+        </div>
+
+        {{/if}}
+      </div>
+
+    </div>
+    {{#if this.selectedVenue}}
+    <div class="city-confirmed">
+      <p>Confirmed: {{this.selectedVenue.name}}</p>
+    </div>
+    {{/if}}
+  </div> --}}

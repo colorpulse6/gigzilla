@@ -1,55 +1,42 @@
-<div class="signup">
+<div class="signup-musician">
   <h1>Sign Up as a Musician</h1>
 
   <form method="POST" action="/signup/musician">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Apartment, studio, or floor" required>
-  </div>
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputEmail4">Email</label>
-      <input type="email" class="form-control" id="inputEmail4">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" name="name" placeholder="Bingo Tophat" required>
     </div>
-    <div class="form-group col-md-6">
-      <label for="inputPassword4">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="bingo@tophat.com" required>
+        <small id="email" class="form-text text-muted">We'll never share your email with anyone else.</small>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" name="password" placeholder="******" required>
+      </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="inputAddress">Address</label>
-    <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-  </div>
-  
-  <div class="form-row">
-    <div class="form-group col-md-6">
-      <label for="inputCity">City</label>
-      <input type="text" class="form-control" id="inputCity">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="phoneNumber">Phone Number</label>
+        <input type="tel" class="form-control" id="phoneNumber" name="phoneNumber" pattern="[0-9]{3}[0-9]{3}[0-9]{4}"
+          placeholder="123-456-7890">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="genre">Genre</label>
+        <input type="text" class="form-control" id="genre" name="genre" placeholder="emo forever">
+      </div>
     </div>
-    <div class="form-group col-md-4">
-      <label for="inputState">State</label>
-      <select id="inputState" class="form-control">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="form-group col-md-2">
-      <label for="inputZip">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-  </div>
-  <div class="form-group">
-    <div class="form-check">
-      <input class="form-check-input" type="checkbox" id="gridCheck">
-      <label class="form-check-label" for="gridCheck">
-        Check me out
-      </label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Sign in</button>
-</form>
+    <div class="form-group">
+        <label for="bio">Bio</label>
+        <textarea class="form-control" name="bio" id="bio" rows="3" placeholder="A little bit about me..."></textarea>
+      </div>
 
-  <form method="POST" action="/signup/musician">
+    <button type="submit" class="btn btn-primary">Sign Up</button>
+  </form>
+
+  {{!-- <form method="POST" action="/signup/musician">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" required>
     <label for="email">Email</label>
@@ -69,7 +56,7 @@
 
 
     <button type="submit">Sign Up</button>
-  </form>
+  </form> --}}
 
   {{#if errorMessage}}
   <div class="error">{{errorMessage}}</div>
