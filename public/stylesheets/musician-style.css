@@ -299,6 +299,10 @@ label {
   margin-bottom: 30px;
 }
 
+.city-cards a {
+    text-decoration: none;
+}
+
 .profile-content {
   padding: 20px 20px;
   width: 100%;
