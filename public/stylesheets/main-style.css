@@ -6,12 +6,17 @@ html, body {
 body {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
 }
 
 #content-wrap {
   flex: 1 0 auto;
 }
+
+/* form button:hover {
+  background: #fff;
+  color: #43a3e6;
+  transition: 0.3s ease background;
+} */
 
 /* Navbar Styles */
 .navbar-custom {
@@ -29,7 +34,7 @@ body {
 
 .navbar-toggler {
   border: none;
-} 
+}
 
 .navbar-custom .nav-item.active .nav-link,
 .navbar-custom .nav-item:hover .nav-link {
@@ -39,8 +44,10 @@ body {
 .navbar-custom .navbar-nav .nav-link {
   color: #FFFFFF;
   font-family: 'Poppins', sans-serif;
-  font-size: 26px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 400;
+  margin-right: 20px;
+  padding: 8px 0;
 }
 
 /* Buttons */
@@ -51,7 +58,8 @@ body {
   font-size: 20px;
   font-weight: 500;
   border-radius: 20px;
-  padding: 2px 20px;
+  padding: 0 20px;
+  margin: 10px 15px 10px 0;
 }
 
 .btn-primary {
@@ -68,7 +76,7 @@ body {
 
 /* Landing Page Styles */
 .landing-musician {
-  background-image: url(/images/landing-musician.jpg);
+  background-image: url(/images/landing-musician.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -82,7 +90,7 @@ body {
 }
 
 .landing-venue {
-  background-image: url(/images/landing-venue.jpg);
+  background-image: url(/images/landing-venue.png);
   background-repeat: no-repeat;
   background-size: cover;
   display: flex;
@@ -240,4 +248,20 @@ footer h5 {
 .signin h1 {
   color: #FF9C00;
   text-shadow: none;
+}
+
+form p, input, textarea {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+form label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+form small {
+  font-family: 'Poppins', sans-serif;
 }
