@@ -1,29 +1,58 @@
-<div>Musician Venue Page</div>
-
-<p>{{venueInfo.name}}</p>
-<img src="{{venueInfo.imgUrl}}">
-<p>Phone Number: {{venueInfo.phoneNumber}}</p>
-<p>Type of Venue: {{venueInfo.type}}</p>
-<p>Description: {{venueInfo.description}}</p>
-<p>Backline: {{venueInfo.backline}}</p>
-<p>Catering: {{venueInfo.food}}</p>
-<p>Capacity: {{venueInfo.capacity}}</p>
-
-
-
-<div>
-  <a href="/home/musician/{{tourId}}/{{cityName}}">Back to Cities</a>
+<div class ="others-header main-header-div">
+      
+          <h2>Hello {{musicianData.name}}</h2>
+        
 </div>
 
+<div class = "main-page-div venue-info-page-main">
 
-<form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
-  <div class="form-group">
-    <label for="formGroupExampleInput">Your Email</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email">
-  </div>
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">Message</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" cols="45"></textarea>
-  </div>
-  <button type="submit">Send</button>
-</form>
+    
+
+    <div class="backbtn-div">
+      <a href="/home/musician/{{tourId}}/{{cityName}}"><button class="button back-button">Back to Cities</button></a>
+    </div>
+
+    <h1>{{venueInfo.name}}</h1>
+
+    <div class="venue-info">
+
+        <img src="{{venueInfo.imgUrl}}">
+
+        <div>
+            <p>Phone Number: {{venueInfo.phoneNumber}}</p>
+            <p>Type of Venue: {{venueInfo.type}}</p>
+            <p>Genre: {{venueInfo.genre}}</p>
+            <p>Description: {{venueInfo.description}}</p>
+
+            {{#if venueInfo.backline}}
+            <p>Backline: Yes</p>
+            {{else}}
+            <p>Backline: No</p>
+            {{/if}}
+
+            {{#if venueInfo.food}}
+            <p>Catering: Yes</p>
+            {{else}}
+            <p>Catering: No</p>
+            {{/if}}
+
+            <p>Capacity: {{venueInfo.capacity}}</p>
+
+        </div>
+
+    </div>
+    <h3>Contact Form</h3>
+    <form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
+      <div class="form-group">
+        <label for="formGroupExampleInput">Your Email</label>
+        <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Email" required>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlTextarea1">Message</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="10" cols="100" required></textarea>
+      </div>
+      <button class="button"type="submit">Send</button>
+    </form>
+
+</div>
+

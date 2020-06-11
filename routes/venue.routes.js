@@ -56,7 +56,7 @@ router.get("/home/venue", (req, res) => {
     "cities.selectedVenue": { $in: null },
   })
     .then((tourData) => {
-      // console.log(tourData)
+      //console.log(tourData.cities)
       tourData = tourData.map((tour) => {
         tour.cities.forEach((city) => {
           if (city.name === venueData.cityName && city.contactedByVenue) {
@@ -66,7 +66,7 @@ router.get("/home/venue", (req, res) => {
           if (city.selectedVenue) {
             city.confirmed = true;
 
-            console.log(city.selectedVenue);
+            //console.log(city)
           }
         });
         return tour;
@@ -78,7 +78,8 @@ router.get("/home/venue", (req, res) => {
         tourData,
       });
     })
-    .catch(() => {
+    .catch((err) => {
+      console.log(err);
       res.send("Unable to view venue homepage");
     });
 });
