@@ -65,7 +65,7 @@ router.get("/home/venue", (req, res) => {
 
           if (city.selectedVenue) {
             city.confirmed = true;
-
+            city.isSameCity = null;
             //console.log(city)
           }
         });
