@@ -51,7 +51,7 @@
     {{#each venues}}
     <a href="/home/musician/{{../tourId}}/{{cityName}}/{{this._id}}">
         <div class="card" style="width: 18rem;">
-            <img src="https://loremflickr.com/g/500/500/musicVenue" class="card-img-top">
+            <img src="https://loremflickr.com/g/500/500/{{this.name}}" class="card-img-top">
             <div class="card-body">
                 <h5 class="card-title">{{this.name}}</h5>
                 <p class="text-muted"> {{this.genre}}</p>
