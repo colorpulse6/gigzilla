@@ -13,3 +13,6 @@ mongoose
     console.error(`An error ocurred trying to connect to the database ${MONGODB_URI}: `, error);
     process.exit(1);
   });
+
+
+  //mongodb+srv://michelleytlock:coconuts@cluster0-aszcx.mongodb.net/test

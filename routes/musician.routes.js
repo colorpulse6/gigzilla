@@ -122,8 +122,6 @@ router.get('/home/musician/delete/:tourId/:city', (req, res) => {
 
 })
 
-//Remove Venues on Confirm
-
 
 
 //Tour Route
