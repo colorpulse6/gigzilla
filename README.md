@@ -1,126 +1,130 @@
 # gigzilla
 ## Description
-Gigzilla offers a convenient platform for musicians to build tours and collaborate with venues.
+Gigzilla offers a convenient platform for for musicians and venues to contact each other to make it easier for musicians to build tours and venues to book shows.
 
 ## User stories
-- login-signup - As a user I would like to see a welcome page that gives me the option to sign up as a mucician or a venue
+- landing - As a user I would like to see a welcome page that tells me about the app and has a clear call to action to sign up.
+
+- login-signup - As a user I would like to see a an easy, simple sign up process as a mucician or a venue
 
 - login-signin - As a user I would like to safely login to the database with secure information
 
 ### Musician User
-- musician-homepage - As a user I would like to have a homepage that lists my current tours and allows me to tours to my list
+- musician-homepage - As a user I would like to have a homepage that lists my current tours and allows me to add tours to my list
 
-- musician-tour-page - As a user I would like to have a tour page that holds information for tours I am building with a search bar that allows me to search cities and add them to my tour
+- musician-tour-page - As a user I would like to have a page holds all the information about my tour that I am building displaing all the cities I have planned, and also allows me to add cities to my tour. This page should also show a contacted/confirmed status for each venue in each city.
 
-- musician-city-page - As a user I would like to have a page where I can see the venues that a certain city has with basic information on each venue.  This page should also contain a radio that tells me whether or not the venue has been contacted
+- musician-city-page - As a user I would like to have a page where I can see the venues that are in the city I am going to, with basic information on each venue. This page should also have a search/filter to easier look through venues.
 
 - musician-venue-page - As a user I would like a page that has all the information on a specific venue I am interested in as well as a contact form.
 
-- musician-profile - As a user I would like to have a preferences page where I can add or edit information for my account
+- musician-profile - As a user I would like to have a profile page where I can add or edit information for my account
 
 ### Venue User
-- home-venue - As a user, I want to view any tours that are planning to be in my city.
-- venue-tour - As a user, I want to look up information about the specific tour I am interested in and if I decide I want them to play at my venue, be able to contact them.
+- venue-homepage - As a user, I want to view any tours that are planning to be in my city.
+
+- venue-tour-page - As a user, I want to look up information about the specific tour I am interested in and if I decide I want them to play at my venue, be able to contact them with a contact form.
+
 - venue-profile - As a user, I want to be able to check and edit details about my venue. 
 
 ## API routes (back-end)
+### Index Routes
 - GET /
-    - render landing.hbs
-- GET /auth/signup
-    - render signup.hbs
-- POST /auth/signup
-    - redirects to /home/musician or /home/venue if user signs up
-    - body: 
-        - email
-        - password
-        - name
-        - type of user
-- GET /auth/login
-    - render login.hbs
-- POST /auth/login
-    - redirects to /home-musician or /home-venuee if user logs in
-    - body: 
-        - email
-        - password
-- POST /auth/logout
+    - render landing.hbs (main-layout.hbs)
+    - body:
+        - link to signup as musician
+        - link to signup as venue
+        - sign in as existing user
+
+### Authentication Routes
+- GET /signup/musician
+    - render musician-signup.hbs (main-layout.hbs)
+- POST /signup/musician
+    - redirects to /home/musician if user signs up
+- GET /signup/venue
+    - render venue-signup.hbs (main-layout.hbs)
+- POST /signup/venue
+    - redirects to /home/venue if user signs up
+- GET /signin
+    - render login.hbs (main-layout.hbs)
+- POST /signin
+    - redirects to /home/musician or /home/venue if user logs in
+- GET /signout
+    - redirects to / if user logs out
+
+### Musician Routes
+- GET /home/musician/profile
+    - renders musician-profile.hbs (musicianLayout.hbs)
+- POST /home/musician/profile
+    - edit profile functionality
+    - redirects to /home/musician/profile
 - GET /home/musician
-    - renders musician-home.hbs
+    - renders musician-home.hbs (musicianLayout.hbs)
     - body: 
         - build tour button
         - tours (that have been created by user)
-        - navbar
-            - profile
-            - tours
-            - settings
-- POST /home/musician 
-    - modal: 
+- POST /home/musician
+    - redirects to /home/musician/:tour
+    - body (modal):
         - tour name input field
         - create tour button
-    - redirects to /home/musician/:tour
+- GET /home/musician/delete/:tourId
+    - delete a tour
+    - redirects to /home/musician
 - GET /home/musician/:tour
-    - renders tour.hbs
+    - renders musician-tour.hbs (musicianLayout.hbs)
     - body:
-        - search form
+        - input for city name
         - add city button
-        - list of cities that will link to /home/musician/:tour/:city
-- POST /home/musician/:tour
-    - adds cities to same page
-- GET /home/musician/:tour/:city
-    - renders city.hbs
+        - list of cities, each will link to /home/musician/:tourId/:cityName
+- POST /home/musician/:tourId
+    - adds cities to tour
+    - redirects to /home/musician/:tour
+- GET /home/musician/:tourId/:cityName
+    - renders musician-cities.hbs (musicianLayout.hbs)
     - body: 
-        - filter form
-        - list of venues that will link to /home/musician/:tour/:city/:venue
-- POST /home/musician/:tour/:city
-    - filter will adjust venue list on page
-- GET /home/musician/:tour/:city/:venue
-    - renders venue.hbs
+        - search/filter form
+        - list of venues, each will link to /home/musician/:tourId/:cityName/:venueId
+- GET /home/musician/:tourId/:cityName/:venueId
+    - renders musician-venues.hbs (musicianLayout.hbs)
     - body: 
-        - venue name
         - venue details
         - contact form
-- POST home/musician/:tour/:city/:venue
+- POST /home/musician/:tourId/:cityName/:venueId
     - contact form 
-    - redirect to /home/musician/:tour
-- GET home/venue
-    - renders venue-home.hbs
+    - redirects to /home/musician/:tour
+- GET /home/musician/:tourId/:cityId/:venueName/add
+    - confirm venue
+    - redirects to /home/musician/:tour
+
+### Venue Routes
+- GET /home/venue/profile
+    - renders venue-profile.hbs (venue-layout.hbs)
+- POST /home/venue/profile
+    - edit profile functionality
+    - redirects to /home/venue/profile
+- GET /home/venue
+    - renders venue-home.hbs (venue-layout.hbs)
     - body: 
-        - list of tours that will each link to /home/venue/:tour
+        - list of tours in venue's city
+- GET /home/venue/:tour/add-confirmed
+    - confirms tour for the venue
+    - redirects to /home/venue
 - GET home/venue/:tour
-    - renders venue-tour.hbs
+    - renders venue-tour.hbs (venue-layout.hbs)
     - body:
-        - tour name
-        - tour description and details
+        - tour details
         - contact form
 - POST home/venue/:tour
     - contact form
-    - redirects to home/venue
-- GET /profile/musician
-    - renders musician-profile.hbs
-    - body: 
-        - name
-        - email
-        - phone number
-        - grenre
-        - photo
-        - bio
-- GET /profile/venue
-    - renders venue-profile.hbs
-    - body: 
-        - name
-        - email
-        - phone number
-        - city
-        - photo
-        - capacity
-        - type
-        - isAvailable
+    - redirects to /home/venue
 
 ## Models
-- UserMusician new Schema ({musicianId:, musicianName: String, email: String, password: String, phone number: Number, genre: String, photoSrc: String, bio: String})
-- Tour new Schema ({name: String, photoSrc: String, musicianId, contactedByVenue: Boolean, cities: [ ]})
-- City new Schema ({name: String, cityId:})
-- UserVenue new Schema ({name: String, email: String, password: String, phone number: Number, cityName: String, imgUrl: String, cityId.populate, isBooked: Boolean, backline: Boolean, food: Boolean, venueId: Number, capacity: Number, type: String, contactedByTour: Boolean, isAvailable: Boolean, contactedTour: Boolean
-})
+- MusicianUser new Schema ({name: String, email: String, tours: [{'Tour'}], password: String, phoneNumber: Number, genre: String, imgUrl: String, bio: String})
+
+- Tour new Schema ({name: String, imgUrl: String, cities [{name: String, selectedVenue: {'VenueUser'}, contactedByVenue: Boolean, contactedByMusician: Boolean, possibleVenues: [String]}]})
+
+- VenueUser new Schema ({name: String, email: String, password: String, cityName: String, phoneNumber: String, imgUrl: String, description: STring, isBooked: Boolean, isAvailable: Boolean, backline: Boolean, isContacted: Boolean, food: Boolean, capacity: Number})
 
 ## Backlog
 - External API for venues
@@ -129,6 +133,7 @@ Gigzilla offers a convenient platform for musicians to build tours and collabora
 - Follow up/reminders 
 - Add filter to venue's homepage to filter tours
 - Error pages
+- Archive tours
 
 ## Links
 ### Trello
@@ -136,7 +141,7 @@ Gigzilla offers a convenient platform for musicians to build tours and collabora
 
 ### Git
 [Repository Link](https://github.com/colorpulse6/gigzilla)
-[Deploy Link]()
+[Deploy Link](https://gig-zilla.herokuapp.com/)
 
 ### Slides
-[Google Slides Url]()
+[Google Slides Url](https://docs.google.com/presentation/d/1R6expLXcZ6Zb12oN9Rv6FGXbIInhQkJjGaCkAX0AyJg/edit?usp=sharing)

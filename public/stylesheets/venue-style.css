@@ -151,14 +151,22 @@ h3 {
   flex-wrap: wrap;
   padding: 40px 0;
   justify-content: center;
+  align-items: center;
 }
 
 .contact {
-  margin-left: 30px;
+  padding: 20px 30px;
 }
 
 .card {
   margin: 10px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.card:hover {
+  top: -10px;
 }
 
 .card-title {
@@ -201,6 +209,16 @@ h3 {
   border-color: #FF9C00;
   padding: 2px 20px;
   display: inline;
+}
+
+.btn-primary:hover {
+  background-color: #121212;
+  border-color: #121212;
+}
+
+.btn-secondary:hover {
+  background-color: #121212;
+  border-color: #121212;
 }
 
 .profile {
