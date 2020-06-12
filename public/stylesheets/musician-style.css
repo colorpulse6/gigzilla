@@ -151,6 +151,16 @@ footer h5 {
   display: inline;
 }
 
+.btn-primary:hover {
+  background-color: #121212;
+  border-color: #121212;
+}
+
+.btn-secondary:hover {
+  background-color: #121212;
+  border-color: #121212;
+}
+
 /* Modal */
 .modal-content {
   font-family: "Poppins", sans-serif;
@@ -197,6 +207,13 @@ footer h5 {
 /* Cards */
 .card {
   margin: 10px;
+  position: relative;
+  top: 0;
+  transition: top ease 0.5s;
+}
+
+.card:hover {
+  top: -10px;
 }
 
 .card-title {

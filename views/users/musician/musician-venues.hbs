@@ -7,7 +7,7 @@
   <h2>{{venueInfo.name}}</h2>
   <div class="venue">
     <div class="venue-image">
-      <img src="{{venueInfo.imgUrl}}">
+      <img src="https://loremflickr.com/g/500/500/{{venueInfo.name}}/all">
     </div>
     <div class="venue-info">
       <p><b>Phone Number:</b> {{venueInfo.phoneNumber}}</p>
@@ -31,7 +31,7 @@
 
   </div>
   <div class="contact">
-    <h3 style="margin-top: 20px;">Contact Tour</h3>
+    <h3 style="margin-top: 20px;">Contact Venue</h3>
     <form method="POST" action="/home/musician/{{tourId}}/{{cityName}}/{{venueInfo._id}}">
       <div class="form-group">
         <label for="email">Email</label>

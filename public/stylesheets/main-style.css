@@ -74,6 +74,17 @@ body {
   margin: 10px 0;
 }
 
+.btn-primary:hover {
+  background-color: #121212;
+  border-color: #121212;
+}
+
+.btn-warning:hover {
+  color: #121212;
+  background-color: white;
+  border-color: white;
+}
+
 /* Landing Page Styles */
 .landing-musician {
   background-image: url(/images/landing-musician.png);

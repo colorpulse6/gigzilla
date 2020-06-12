@@ -3,9 +3,6 @@ const router = express.Router();
 const MusicianModel = require("../models/musician.model");
 const TourModel = require("../models/tour.model");
 const VenueModel = require("../models/venue.model");
-const CityModel = require("../models/city.model");
-
-
 
 //Profile Route
 
